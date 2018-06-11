@@ -1,0 +1,122 @@
+
+<ion-header>
+
+  <ion-navbar>
+     <ion-buttons start>
+         <button ion-button icon-only (click)="dismiss()">
+            <ion-icon name="close" class="close"></ion-icon>
+         </button>
+      </ion-buttons>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+     <div class="main">
+         <div class="img-div" >
+            <img src={{pic}} class="main-img">
+         </div>
+         <div class="item-input">
+            <ion-item>
+               <ion-input type="text" placeholder="Recipe Name"    [(ngModel)]="Recipes.recipeTitle" maxlength="30" minlength="2"></ion-input>
+            </ion-item>
+           
+            <ion-item>
+               <ion-textarea [(ngModel)]="Recipes.description"  
+                placeholder="Description"></ion-textarea>
+            </ion-item>
+            
+         </div>
+         <div class="item-left div-color">Level</div>
+         <div class="item-right div-color">Time</div>
+         <ion-item class="item-left">
+            <ion-select [(ngModel)]="Recipes.level" >
+            <ion-option value="Easy" >Easy</ion-option>
+            <ion-option value="Medium">Medium</ion-option>
+            <ion-option value="Hard">Hard</ion-option>
+            </ion-select>
+            <ion-icon name="ios-browsers-outline" item-right></ion-icon>
+         </ion-item>
+        
+         <ion-item class="item-right">
+            <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="Recipes.duration" ></ion-datetime>
+            <ion-icon name="ios-clock-outline" item-right></ion-icon>
+         </ion-item>
+         
+         <ion-item >
+            <ion-label>Meal Type</ion-label>
+            <ion-select [(ngModel)]="Recipes.mealType" >
+            <ion-option value="Kosher Meet" >Kosher Meet</ion-option>
+            <ion-option value="Kosher Diary">Kosher Diary</ion-option>
+            <ion-option value="Kosher Parve">Kosher Parve</ion-option>
+            <ion-option value="Not Kosher Meet" >Not Kosher Meet</ion-option>
+            <ion-option value="Not Kosher Diary">Not Kosher Diary</ion-option>
+            <ion-option value="Not Kosher Veg">Not Kosher Veg</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+        
+         <ion-item >
+            <ion-label>Category</ion-label>
+            <ion-select [(ngModel)]="Recipes.categories" >
+            <ion-option value="{{a.categoryName}}" *ngFor="let a of category_name">{{a.categoryName}}</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+      
+         <div class="ing-div">
+            <ion-item  class="item-ing">
+               <ion-input type="text" placeholder="Ingredients" [(ngModel)]="Recipes.ingredientsValue" ></ion-input>
+            </ion-item>
+            <span class="btn-ing" (click)="onIngredients(Recipes.ingredientsValue)">
+               <ion-icon name="md-add" item-right class="add"></ion-icon>
+            </span>
+         </div>
+    
+         <div *ngIf="ingredients_data">
+            <div *ngFor="let a of ingredients_data;let i=index">
+               <div class="div-ingredients">
+                  {{a}}
+                  <span class="edit-close">
+                     <ion-icon name="close" (click)="remove_btn(i)" class="icon-close"></ion-icon>
+                     <ion-icon name="md-create" (click)="ing_edit_btn(i,a)" class="icon-close"></ion-icon>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <div class="ing-div">
+            <ion-item  class="item-ing">
+               <ion-input type="text" placeholder="Instructions" [(ngModel)]="Recipes.instructionsValue" ></ion-input>
+            </ion-item>
+            <span class="btn-ing" (click)="onInstruction(Recipes.instructionsValue)">
+               <ion-icon name="md-add" item-right class="add"></ion-icon>
+            </span>
+         </div>
+        
+         <div *ngIf="instructions_data">
+            <div *ngFor="let a of instructions_data;let i=index">
+               <div class="div-ingredients">
+                  {{a}}
+                  <span class="edit-close">
+                     <ion-icon name="close" (click)="remove_instruction(i)" class="icon-close"></ion-icon>
+                     <ion-icon name="md-create" (click)="inst_edit_btn(i,a)" class="icon-close"></ion-icon>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <ion-item class="item-left"  (click)="onMultiImg()">
+            <ion-label class="add-img-icon">{{imagetext}}</ion-label>
+            <ion-icon name="md-add" item-right class="add-img-icon"></ion-icon>
+         </ion-item>
+         <ion-item class="item-right" (click)="onVideo()">
+            <ion-label class="add-img-icon">Video</ion-label>
+            <ion-icon name="md-add" item-right class="add-img-icon"></ion-icon>
+         </ion-item>
+   </div>
+   <div class="full-btn">
+      <button ion-button class="btn-left "  (click)="onCancel()">Cancel</button>
+      <button ion-button class="btn-right "  (click)="onSave()" >Save</button>
+   </div>
+</ion-content>

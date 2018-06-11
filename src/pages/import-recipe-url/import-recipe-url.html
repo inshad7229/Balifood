@@ -1,0 +1,55 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recipe Import</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+   <!--   <div class="main">
+         <div class="img-div" >
+            <img src={{pic}} class="main-img">
+         </div>
+
+         <div>
+           
+         </div>
+ 
+         </div> -->
+
+         <ion-card>
+        <img src={{pic}}/>
+        <ion-card-content>
+          <ion-card-title>
+           Title: {{this.Recipes.recipeTitle}}
+            </ion-card-title>
+            <!-- <div class="left">Category:{{Recipes.categories}}</div> -->
+          <p>
+          Description: {{Recipes.description}}
+          </p>
+          <div class="left">Level: {{Recipes.level}}</div>
+          <div class="left">mealType: {{Recipes.mealType}}</div>
+          <div class="left">Ingredients:
+             <ol type="number" class="green-tick">
+                <li *ngFor="let a of Recipes.ingredients"> {{a}}
+                  </li>
+            </ol>
+          </div>
+          <div class="left">Instructions:
+            <ol type="number" class="green-tick">
+                <li *ngFor="let a of Recipes.instructions"> {{a}}
+                  </li>
+            </ol>
+          </div>
+
+        </ion-card-content>
+</ion-card>
+   <div class="full-btn">
+      <button ion-button class="btn-left "  (click)="onCancel()">Cancel</button>
+      <button ion-button class="btn-right "  (click)="onSave()" >Save</button>
+   </div>
+</ion-content>

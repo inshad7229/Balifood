@@ -1,0 +1,54 @@
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>{{'signup.signup' | translate}}</ion-title>
+   </ion-navbar>
+</ion-header>
+<ion-content >
+   <div class="div-input">
+      <div>
+         <form [formGroup]="salonregister">
+            <ion-item>
+               <ion-label stacked>{{'signup.name' | translate}}</ion-label>
+               <ion-input type="text" [(ngModel)]="signup.username" formControlName="name"></ion-input>
+               <ion-icon name="ios-person" item-right ></ion-icon>
+            </ion-item>
+            <p style="color:#ff8b00;padding-left:15px;"  *ngIf="!salonregister.controls.name.valid && (salonregister.controls.name.dirty )">*{{'iprqd' | translate}} </p>
+            <ion-item>
+               <ion-label stacked>{{'loginpage.email' | translate}}</ion-label>
+               <ion-input type="text" [(ngModel)]="signup.email"  formControlName="useremail"></ion-input>
+               <ion-icon name="mail" item-right ></ion-icon>
+            </ion-item>
+            <p style="color:#ff8b00;padding-left:15px;"  *ngIf="!salonregister.controls.useremail.valid && (salonregister.controls.useremail.dirty )"> *{{'invalidemail' | translate}} </p>
+            <ion-item>
+               <ion-label stacked>{{'password' | translate}}</ion-label>
+               <ion-input type="password" [(ngModel)]="signup.password" formControlName="pass"></ion-input>
+               <ion-icon name="icon-password" class="icon-color" item-right ></ion-icon>
+            </ion-item>
+            <p style="color:#ff8b00;padding-left:15px;" *ngIf="!salonregister.controls.pass.valid && (salonregister.controls.pass.dirty )" >*{{'loginpage.passlength' | translate}}</p>
+            <ion-item>
+               <ion-label stacked>{{'signup.confirm_password' | translate}}</ion-label>
+               <ion-input type="password" [(ngModel)]="confirmPassword" formControlName="cpass" ></ion-input>
+               <ion-icon name="icon-password" class="icon-color" item-right ></ion-icon>
+            </ion-item>
+            <p style="color:#ff8b00;padding-left:15px;" *ngIf="getStatusFOrdisabled(confirmPassword)!=true" >* {{'passwordnotmatched' | translate}}</p>
+             </form>
+            <ion-item>
+               <ion-label stacked>{{'signup.contact' | translate }}</ion-label>
+               <ion-input type="tel" [(ngModel)]="signup.contactNumber" > </ion-input>
+               <ion-icon name="icon-password" class="icon-color" item-right ></ion-icon>
+            </ion-item>
+           <!--  <p style="color:#ff8b00;padding-left:15px;"  *ngIf="!salonregister.controls.contact.valid && (salonregister.controls.contact.dirty )"> *Contact number required. </p> -->
+        
+      </div>
+      <ion-item no-lines>
+         <ion-label >{{'signup.iaccept' | translate}}</ion-label>
+         <ion-checkbox color="checkcolor" ng-true-value="'1'" ng-false-value="'0'"  checked="false"  [(ngModel)]="remembers"></ion-checkbox>
+      </ion-item>
+   </div>
+   <div class="btn-div1" >
+      <button ion-button class="btn-login" (click)="onSignup()" [disabled]="!salonregister.valid ">{{'signup.signup'}}</button>
+   </div>
+</ion-content>
+
+<!-- maxlength="10" -->

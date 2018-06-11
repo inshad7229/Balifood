@@ -1,0 +1,30 @@
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>{{'contactus' | translate}}</ion-title>
+   </ion-navbar>
+</ion-header>
+<ion-content padding>
+   <div class="logo-div">
+      <img src="assets/imgs/balifooddd.png" class="logo">
+   </div>
+   <form [formGroup]="salonregister">
+      <div class="div-input">
+         <ion-item>
+            <ion-label stacked>{{'loginpage.email' | translate}}</ion-label>
+            <ion-input type="text" [(ngModel)]="contact.email" formControlName="useremail"></ion-input>
+            <ion-icon name="mail" item-right ></ion-icon>
+         </ion-item>
+         <p style="color:#ff8b00;padding-left:15px;"  *ngIf="!salonregister.controls.useremail.valid && (salonregister.controls.useremail.dirty )"> *{{'invalidemailaddress' | translate}}. </p>
+         <ion-item class="custom-contact">
+            <ion-label stacked>{{'yourmessage' | translate}}</ion-label>
+            <ion-textarea type="text" [(ngModel)]="contact.message" class="text-class" formControlName="message"></ion-textarea>
+         </ion-item>
+         <p style="color:#ff8b00;padding-left:15px;"  *ngIf="!salonregister.controls.message.valid && (salonregister.controls.message.dirty )"> *{{'iprqd' | translate}} </p>
+      </div>
+   </form>
+   <div class="btn-div1">
+      <button ion-button class="btn-login" (click)="onSave()" [disabled]="!salonregister.valid">{{'sendusmessage' | translate}}</button>
+   </div>
+</ion-content>
+

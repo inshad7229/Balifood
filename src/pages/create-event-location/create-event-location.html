@@ -1,0 +1,29 @@
+
+
+<ion-header>
+   <ion-toolbar color="primary">
+      <input id="pac-input" type="text"
+         placeholder="Enter a location">
+      <ion-buttons end >
+         <button ion-button icon-only (click)="onDone()">
+            <ion-icon name="md-checkmark-circle" class="camera"></ion-icon>
+         </button>
+         <button ion-button icon-only (click)="onClose()">
+            <ion-icon name="close" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-toolbar>
+</ion-header>
+<ion-content padding>
+   <div class="pac-card" id="pac-card">
+      <div id="pac-container">
+      </div>
+   </div>
+   <div id="mapsearch"></div>
+   <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+   </div>
+</ion-content>
+

@@ -1,0 +1,235 @@
+
+
+page-creat-recipe-camera {
+  .datetime-ios,
+  .select-ios {
+    padding: 0;
+  }
+  .bar-button-default-md,
+  .bar-button-clear-md-default,
+  .bar-button-md-default {
+    color: #ff8b00;
+    background-color: transparent;
+  }
+  [color="primary"] {
+    color: #ff8b00;
+  }
+  .camera-div {
+    width: 100%;
+    float: left;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+  .camera-wrap {
+    width: 100%;
+    margin: auto 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 2px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .camera-data {
+    width: 100%;
+    float: left;
+    background-color: #fff;
+  }
+  .camera-post {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+  }
+  .camera1 {
+    width: 49%;
+    background: #ff8b00;
+    height: 30px;
+    border-radius: 0;
+    float: left;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+  }
+  .camera2 {
+    width: 49%;
+    background: #ff8b00;
+    height: 30px;
+    border-radius: 0;
+    float: right;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+  }
+  .camera-cancel {
+    width: 100%;
+    background: #ff8b00;
+    height: 30px;
+    border-radius: 0;
+    float: right;
+    padding: 0;
+    margin-top: 10px;
+    text-transform: capitalize;
+  }
+  .camera-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .main-img {
+    max-width: 100%;
+    border: 0;
+    width: 100%;
+  }
+  .select-ios .select-icon {
+    width: 0;
+    height: 0;
+  }
+  .toolbar-title-md {
+    color: #ff8b00;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0 25px 0 0;
+    text-align: center;
+  }
+  .div-ingredients {
+    width: 99%;
+    float: left;
+    background-color: #cecece;
+    margin: 1px;
+    padding: 5px;
+    padding-right: 30px;
+    position: relative;
+    .icon-close {
+      position: absolute;
+      right: 0;
+      top: 2;
+    }
+  }
+  .icon-close {
+    float: right;
+    font-size: 18px;
+    color: #fff;
+    margin-right: 12px;
+  }
+  .item-md.item-input.item-input-has-focus .item-inner,
+  .item-md.item-input.input-has-focus .item-inner {
+    border-bottom-color: transparent;
+    box-shadow: 0 -1px 0 0 transparent inset;
+  }
+  .item-ios.item-input.item-input-has-focus .item-inner,
+  .item-ios.item-input.input-has-focus .item-inner {
+    border-bottom-color: transparent;
+    box-shadow: 0 -1px 0 0 transparent inset;
+  }
+  .item-input-has-focus .label-md[stacked],
+  .input-has-focus .label-md[stacked],
+  .item-input-has-focus .label-md[floating],
+  .input-has-focus .label-md[floating] {
+    color: #ff8b00;
+  }
+  .btn-ing {
+    background: #cecece none repeat scroll 0 0;
+    margin-left: 17px;
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    font-size: 22px;
+    float: right;
+  }
+  .item-block {
+    min-height: 3.9rem;
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: 0;
+  }
+  .item-ing {
+    float: left;
+    width: calc(100% - 80px);
+  }
+  .ing-div {
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+  }
+  .main {
+    padding: 10px;
+  }
+  .item-left {
+    float: left;
+    width: 45%;
+  }
+  .item-right {
+    float: right;
+    width: 45%;
+  }
+  .full-btn {
+    width: 100%;
+  }
+  .btn-left {
+    width: 48%;
+    background: #222;
+  }
+  .btn-right {
+    width: 48%;
+    background: #ff8b00;
+  }
+  .add {
+    color: #fff;
+  }
+  .add-img-icon {
+    color: #cecece;
+  }
+  .ion-ios-arrow-down::before {
+    color: #cecece;
+    content: "";
+  }
+  .ion-md-arrow-down::before {
+    color: #cecece;
+    content: "";
+  }
+  .ion-ios-browsers-outline::before {
+    color: #cecece;
+    content: "";
+  }
+  .ion-md-browsers-outline::before {
+    color: #cecece;
+    content: "";
+  }
+  .ion-ios-clock-outline::before {
+    color: #cecece;
+    content: "";
+  }
+  .ion-md-clock-outline::before {
+    color: #cecece;
+    content: "";
+  }
+  .toolbar-content-md {
+    flex: 1 1 0;
+    max-width: 100%;
+    min-width: 0;
+    order: 3;
+    text-align: center;
+  }
+  .select-md .select-icon .select-icon-inner {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    color: transparent;
+    height: 0;
+    left: 5px;
+    margin-top: -3px;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    width: 0;
+  }
+  .item-md {
+    padding-left: 2px;
+  }
+}
+

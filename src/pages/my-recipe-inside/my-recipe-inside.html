@@ -1,0 +1,167 @@
+
+<ion-header>
+   <ion-navbar>
+      <ion-title *ngIf=0>{{recipes_data.category}}</ion-title>
+	  <ion-title *ngIf=1>{{recipes_data.categoryHebrew}}</ion-title>
+      <ion-buttons end *ngIf="!post">
+         <button ion-button icon-only (click)="presentPopover()">
+            <ion-icon name="icon-dropdown-list" class="icon-color"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+   <div class="pop" *ngIf="pop_div=='true'">
+      <div class="pop-div" (click)="onImports()">
+         <ion-icon name="ios-camera" class="pop-icon1"></ion-icon>
+      </div>
+      <div class="pop-div" (click)="AddUrl()">
+         <ion-icon name="icon-earth-500" class="pop-icon">
+         </ion-icon>
+      </div>
+      <div class="pop-div" (click)="onClipboard()">
+         <ion-icon name="icon-notepad" class="pop-icon"></ion-icon>
+      </div>
+      <div class="pop-div" (click)="onNewRecipe()">
+         <ion-icon name="icon-add-recipe" class="pop-icon"></ion-icon>
+      </div>
+   </div>
+</ion-header>
+<ion-content class="content">
+   <div class="search-div">
+      <span class="search-left">
+         <ion-searchbar (ionInput)="getItems($event)" placeholder="{{'search' | translate}}"></ion-searchbar>
+      </span>
+      <span class="search-right">
+         <ion-icon name="icon-listed-view" class="icon-color" (click)="onIconlist()" *ngIf="list=='true'"> </ion-icon>
+         <ion-icon name="icon-tiled-view" class="icon-color" (click)="onIcongrid()" *ngIf="list!='true'"> </ion-icon>
+      </span>
+   </div>
+   <div class="grid-view" *ngIf="list!='true' && myfavRecipe">
+      <ul class="p-0 list-ul" type="none"  *ngIf="!RecipeLink">
+         <li *ngFor="let a of category" >
+            <a >
+               <img src={{a.mainImage}} (click)="onViewDetail(a._id,a)" />
+               <div class="action-box">
+                  <div class="div-title item-title">
+                     <b>{{a.recipeTitle}}</b> 
+                     <span class="pull-right star-icon" (click)="onAddFavourite(a._id)">
+                        <ion-icon name="ios-star-outline" *ngIf="getStatusFOrdisabled(a._id)!=true"> </ion-icon>
+                        <ion-icon name="ios-star" *ngIf="getStatusFOrdisabled(a._id)==true" class="star"> </ion-icon>
+                     </span>
+                  </div>
+                  <div class="div-title"> {{a.description}}</div>
+                  <div (click)="onViewDetail(a._id,a)">
+                     <span class="pull-left color">
+                     <i class="fa fa-eye color" ></i>{{a.views.length}}
+                     </span>
+                     <span class="pull-right color">
+                     <i class="fa fa-thumbs-up color"></i>{{a.likes.length}}
+                     </span>
+                  </div>
+               </div>
+            </a>
+         </li>
+      </ul>
+      <ul class="p-0 list-ul" type="none"  *ngIf="RecipeLink">
+         <li *ngFor="let a of category;let i=index" >
+            <a (click)="onCheckRecipe(a._id,a.recipeTitle,i)">
+               <img src={{a.mainImage}}  />
+               <span class="icon-btm" *ngIf="checkStatus==i">
+                  <ion-icon name="md-checkmark" ></ion-icon>
+               </span>
+               <div class="action-box">
+                  <div class="div-title item-title">
+                     <b>{{a.recipeTitle}}</b> 
+                     <span class="pull-right star-icon" *ngIf="checkStatus==i">
+                        <ion-icon name="ios-star-outline" *ngIf="getStatusFOrdisabled(a._id)!=true"> </ion-icon>
+                        <ion-icon name="ios-star" *ngIf="getStatusFOrdisabled(a._id)==true" class="star"> </ion-icon>
+                     </span>
+                  </div>
+                  <div class="div-title"> {{a.description}}</div>
+                  <div >
+                     <span class="pull-left color">
+                     <i class="fa fa-eye color" ></i>{{a.views.length}}
+                     </span>
+                     <span class="pull-right color">
+                     <i class="fa fa-thumbs-up color"></i>{{a.likes.length}}
+                     </span>
+                  </div>
+               </div>
+            </a>
+         </li>
+      </ul>
+   </div>
+   <div  *ngIf="list=='true' && myfavRecipe" >
+      <div *ngIf="!RecipeLink">
+         <div class="list-item" *ngFor="let a of category" >
+            <div class="div-list">
+               <div class="img-div pull-left" (click)="onViewDetail(a._id,a)">
+                  <img src={{a.mainImage}}>
+
+               </div>
+               <div class="img-text">
+                  <div class="extra-div">
+                     {{a.recipeTitle}}
+                     <span class="pull-right" (click)="onAddFavourite(a._id)">
+                        <ion-icon name="ios-star-outline" *ngIf="getStatusFOrdisabled(a._id)!=true"> </ion-icon>
+                        <ion-icon name="ios-star" *ngIf="getStatusFOrdisabled(a._id)==true" class="star"> </ion-icon>
+                     </span>
+                  </div>
+                  <div class="extra-div1" (click)="onViewDetail(a._id,a)">{{a.description}}</div>
+               </div>
+               <div class="div-icon">
+                  <span class="pull-left color">
+                  <i class="fa fa-eye color" ></i>{{a.views.length}}
+                  </span>
+                  <span class="pull-right color">
+                  <i class="fa fa-thumbs-up color"></i>{{a.likes.length}}
+                  </span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div *ngIf="RecipeLink">
+         <div class="list-item" *ngFor="let a of category;let i=index" >
+            <div class="div-list" (click)="onCheckRecipe(a._id,a.recipeTitle,i)">
+               <div class="img-div pull-left" >
+                  <img src={{a.mainImage}}>
+                   <span class="icon-btm" *ngIf="checkStatus==i">
+                  <ion-icon name="md-checkmark" ></ion-icon>
+               </span>
+               </div>
+               <div class="img-text">
+                  <div class="extra-div">
+                     {{a.recipeTitle}}
+                     <span class="pull-right" >
+                        <ion-icon name="ios-star-outline" *ngIf="getStatusFOrdisabled(a._id)!=true"> </ion-icon>
+                        <ion-icon name="ios-star" *ngIf="getStatusFOrdisabled(a._id)==true" class="star"> </ion-icon>
+                     </span>
+                  </div>
+                  <div class="extra-div1" >{{a.description}}</div>
+               </div>
+               <div class="div-icon">
+                  <span class="pull-left color">
+                  <i class="fa fa-eye color" ></i>{{a.views.length}}
+                  </span>
+                  <span class="pull-right color">
+                  <i class="fa fa-thumbs-up color"></i>{{a.likes.length}}
+                  </span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="custom-alert" *ngIf="addurlvalue">
+      <div class="header-text">{{'addurl' | translate}}</div>
+      <ion-item  class="item-ing">
+         <ion-input type="text" placeholder="{{'addurlhere' | translate}}" [(ngModel)]="urltext" ></ion-input>
+      </ion-item>
+      <div class="cus-alert-btn">
+         <button ion-button small class="cus-alert-btn-left" (click)="onCancel()">{{'cancel' | translate}}</button>
+         <button ion-button small class="cus-alert-btn-right" (click)="onRecipeTextAdd()">{{'add' | translate}}</button>
+      </div>
+   </div>
+</ion-content>
+<ion-footer *ngIf="RecipeLink">
+   <button ion-button block class="cus-alert-btn-right" (click)="onAttachedRecipeLink()">{{'attachlink' | translate}}</button>
+</ion-footer>
+

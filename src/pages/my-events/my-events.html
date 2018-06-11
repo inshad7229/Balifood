@@ -1,0 +1,367 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-title> {{eventData.event_name}} </ion-title> 
+		<ion-buttons left>
+        <button ion-button (click)="eventList()">
+           <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>		
+        <ion-buttons end >
+            <button *ngIf="EventOwner==true" icon-only ion-button  class="btn-notify" (click)="onEditEvents()">
+                <ion-icon name="md-create" class="plus-icon"></ion-icon>
+           </button>
+            <button *ngIf="EventOwner==true" icon-only ion-button  class="btn-notify" (click)="ondeleteEvent()">
+                <ion-icon name="trash" class="plus-icon"></ion-icon>
+           </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="content">
+    <div class="event_details-sec">
+        <div class="event_details-first_box">
+            <div class="first_box-img">
+                <img src="./assets/imgs/korean.jpg" *ngIf="!eventData.image"/>
+                <img src={{eventData.image}} *ngIf="eventData.image"/>
+                
+            </div>
+            <div class="first_box-schedule">
+                <div class="schedule_detail" *ngIf="!EXPIREDEVENTS">
+                    <ul class="m-0" type="none" >
+                        <li>
+                            <div class="font_18"> {{day}} </div>
+                            <div class=""> <small> Days </small> </div>
+                        </li>
+                        <li>
+                            <div class="font_18"> {{hour}} </div>
+                            <div class=""> <small> Hrs </small> </div>
+                        </li>
+                        <li>
+                            <div class="font_18"> {{minute}} </div>
+                            <div class=""> <small> Min </small> </div>
+                        </li>
+                        <li>
+                            <div class="font_18"> {{second}} </div>
+                            <div class=""> <small> Sec </small> </div>
+                        </li>
+                    </ul>
+
+                      
+
+                    <div class="event-icon text-center font_18">
+                        <img src="./assets/imgs/events.png" />
+                    </div>
+                </div>
+
+
+                   <div class="schedule_detail" *ngIf="EXPIREDEVENTS" (click)="presentActionSheet()">
+                    <ul class="m-0" type="none" >
+                        <li >
+                          <ion-icon name="camera"></ion-icon>
+                     
+                        </li>
+                    
+                    </ul>
+                </div>
+                <ul class="first_box-link" type="none">
+                    <li>
+                        <a href="javascript:void(0);" (click)="onChat()"> {{'chat' | translate}} </a>
+                    </li>
+                    <li>
+                        <a  href="javascript:void(0);" (click)="onPhoto()"> {{'photos' | translate}} </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" > {{'details' | translate}} </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="user_list">
+            <li  *ngFor="let c of eventData.members" class={{c.status}}>
+                <div class="user_img" *ngIf="c.status!='Cancelled'">
+                    <img src="./assets/imgs/profile_img.png" *ngIf="c.profileImage==null"/>
+                    <img src={{c.profileImage}} *ngIf="c.profileImage!=null"/>
+                    <!--span class="" *ngIf="EventOwner" (click)="onDeleteMember(c.member_id)"> <ion-icon name="md-close" ></ion-icon> </span-->
+                  
+                </div>
+                <div class="user_name {{c.status}}" >{{c.username}} </div>
+            </li>
+            <!-- <li class="color-green">
+                 <div class="user_img">
+                    <img src="./assets/imgs/profile_img.png" *ngIf="c.profileImage==null"/>
+                    <img src={{c.profileImage}} *ngIf="c.profileImage!=null"/>
+                    <span class="" *ngIf="EventOwner" (click)="onDeleteMember(c.member_id)"> <ion-icon name="md-close" ></ion-icon> </span>
+                </div>
+                <div class="user_name">{{c.username}} </div>
+            </li> -->
+      <!--       <li class="color-red">
+                <div class="user_img">
+                    <img src="./assets/imgs/profile_img.png" />
+                    <span class=""> <ion-icon name="md-close" ></ion-icon> </span>
+                </div>
+                <div class="user_name">John Smith </div>
+            </li>
+            <li class="color-green">
+                <div class="user_img">
+                    <img src="./assets/imgs/profile_img.png" />
+                    <span class=""> <ion-icon name="md-close" ></ion-icon> </span>
+                </div>
+                <div class="user_name">John Smith </div>
+            </li>
+            <li class="color-red">
+                <div class="user_img">
+                    <img src="./assets/imgs/profile_img.png" />
+                    <span class=""> <ion-icon name="md-close" ></ion-icon> </span>
+                </div>
+                <div class="user_name">John Smith </div>
+            </li> -->
+        </ul>
+
+        <div class="event-box">
+            <h4> {{eventData.username}}</h4>
+            <div class="icon-div">
+                <span class="icon"> <ion-icon name="ios-calendar-outline" ></ion-icon>  </span> 
+                <div class="icon-text">{{change(eventData.date)}} </div>
+            </div>
+            <div class="icon-div">
+                <span class="icon"> <ion-icon name="md-time" ></ion-icon>  </span> 
+                <div class="icon-text"> {{eventData.time}} </div>
+            </div>
+            <div class="icon-div">
+                <span class="icon"> <ion-icon name="ios-pin-outline" ></ion-icon>  </span> 
+                <div class="icon-text"> {{eventData.address}} </div>
+            </div>
+        </div>
+
+        <div class="custom-tab">
+            <ion-segment [(ngModel)]="pet">
+                <ion-segment-button value="Menu">
+                    {{'menu' | translate}}
+                </ion-segment-button>
+                <ion-segment-button *ngIf="eventData.eventType!='myEvent'" value="bring">
+                    {{'wtb' | translate}}
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+
+        <div [ngSwitch]="pet">
+            <ion-list *ngSwitchCase="'Menu'">
+                <div class="event_menu">
+                    <div class="event_panel" *ngFor="let a of eventData.menu">
+                        <!--div class="menu_box brd-b" color="orange">
+                            <div class="grid-6 text-left">
+                                Owner
+                            </div>
+                            <div class="grid-6 text-center">                                
+                                {{a.owner_name}}
+                            </div>
+                            <div class="grid-3 text-right">
+                                Status
+                            </div>
+                        </div-->
+						<div class="menu_box">
+                            <div class="grid-6 text-left" *ngIf="a.item_name">
+								<a href="Javascript:void(0);" (click)="onViewDetail(a.recipe_link[0]._id,a.recipe_link[0])" *ngIf="a.recipe_link[0]" >{{camelize(a.item_name)}}</a>
+								<span *ngIf="!a.recipe_link[0]">{{camelize(a.item_name)}}</span>
+                            </div>
+							<div class="grid-6 text-left" *ngIf="!a.item_name">
+								{{'itemname' | translate}}
+                            </div>
+                            <div class="grid-6 text-left" *ngIf="a.menuType">
+                                 {{camelize(a.menuType) }}
+                            </div>
+							<div class="grid-6 text-left" *ngIf="!a.menuType">
+                              {{'menutype' | translate}}
+                            </div>
+                        </div>
+						
+						<div class="menu_box"  *ngIf="eventData.eventType!='myEvent'">
+                            
+                            <div class="grid-6 text-left lh43">
+                                 {{camelize(a.owner_name) }}
+                            </div>
+							<div class="grid-6 text-left lh43">
+                              {{camelize(a.status) }}
+                            </div>
+                        </div>
+                       
+						<div class="menu_box" >
+                            <div class="grid-6 text-left lh43" *ngIf="a.score">
+								<span class="text-muted">{{'score' | translate}}: </span>&nbsp;&nbsp;{{getAvg(a.grade)}}
+                            </div>
+							<div class="grid-6 text-left lh43" *ngIf="!a.score">
+								<span class="text-muted">{{'score' | translate}}: </span>&nbsp;&nbsp;{{getAvg(a.grade)}}
+                            </div>
+                           
+							<div class="grid-6 text-left grade-dropdown" style="color:grey">
+                               
+							   <ion-item>
+  <ion-label>{{'grade' | translate}}</ion-label>
+  <ion-select [(ngModel)]="a.mygrade" (ionChange)="addGrade(a.mygrade, a)">
+     <ion-option value="0">0</ion-option>
+    <ion-option value="1">1</ion-option>
+	  <ion-option value="2">2</ion-option>
+    <ion-option value="3">3</ion-option>
+	  <ion-option value="4">4</ion-option>
+    <ion-option value="5">5</ion-option>
+	  <ion-option value="6">6</ion-option>
+    <ion-option value="7">7</ion-option>
+	  <ion-option value="8">8</ion-option>
+    <ion-option value="9">9</ion-option>
+  </ion-select>
+</ion-item>
+
+							   <!-- <ion-select [(ngModel)]="a.mygrade">
+							   <ion-option >aa</ion-option>
+								   <ion-option checked value=0>0</ion-option>
+								   <ion-option value=1>1</ion-option>
+								   <ion-option value=2>2</ion-option>
+							   </ion-select> -->
+                            </div>
+                        </div>
+                        <!--div class="menu_box">
+                            <div class="grid-2 text-left">
+                                <ion-item>
+                                    <ion-input type="text" placeholder={{a.menuType}} [(ngModel)]="a.menuType" disabled></ion-input>
+                                    <ion-icon name="ios-arrow-down" item-right></ion-icon>
+                                </ion-item>      
+                            </div>
+                            <div class="grid-2 text-center">
+                                <ion-item>
+                                    <ion-input type="text" [(ngModel)]="a.grade" disabled></ion-input>
+                                    <ion-icon name="md-create" item-right></ion-icon>
+                                </ion-item>      
+                            </div>
+                        </div-->
+                    </div>
+
+<!-- 
+                    <div class="event_panel">
+                        <div class="menu_box brd-b" color="orange">
+                            <div class="grid-3 text-left">
+                                Owner
+                            </div>
+                            <div class="grid-3 text-center">
+                                Item Name
+                            </div>
+                            <div class="grid-3 text-right">
+                                Status
+                            </div>
+                        </div>
+                        <div class="menu_box">
+                            <div class="grid-3 text-left">
+                                John Smith
+                            </div>
+                            <div class="grid-3 text-center">
+                                Chicken
+                            </div>
+                            <div class="grid-3 text-right">
+                                <img src="./assets/imgs/green.png" />
+                            </div>
+                        </div>
+                        <div class="menu_box">
+                            <div class="grid-2 text-left">
+                                <ion-item>
+                                    <ion-input type="text" placeholder="Username"></ion-input>
+                                    <ion-icon name="ios-arrow-down" item-right></ion-icon>
+                                </ion-item>      
+                            </div>
+                            <div class="grid-2 text-center">
+                                <ion-item>
+                                    <ion-input type="text" placeholder="Username"></ion-input>
+                                    <ion-icon name="md-create" item-right></ion-icon>
+                                </ion-item>      
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </ion-list>
+
+            <ion-list *ngSwitchCase="'bring'">
+                <div class="event_menu" *ngFor="let b of eventData.whatToBring">
+                    <div class="event_action">
+                        <ul class="action_ul">
+                            <li class="bg-green" *ngIf="b.status=='confirmed' || b.status=='Confirmed'"> {{'confirm' | translate}} </li>
+                            <li class="bg-red" *ngIf="b.status=='cenceled' || b.status=='Cenceled'"> {{'reject' | translate}} </li>
+                            <li class="bg-black" *ngIf="b.status=='Pending' || b.status=='pending'"> {{'pending' | translate}} </li>
+                        </ul>
+                    </div>
+                    <div class="event_panel">
+                        <div class="menu_box brd-b" color="orange">
+                            <div class="grid-3 text-left">
+                                {{'owner' | translate}}
+                            </div>
+                            <div class="grid-3 text-center">
+                                {{'wtb' | translate}}
+                            </div>
+                            <div class="grid-3 text-right">
+                                {{'status' | translate}}
+                            </div>
+                        </div>
+                        <div class="menu_box">
+                            <div class="grid-3 text-left">
+                                {{b.memberName}}
+                            </div>
+                            <div class="grid-3 text-center">
+                                {{b.bringItems}}
+                            </div>
+                            <div class="grid-3 text-right">
+                              <!--   <img src="./assets/imgs/green.png" /> -->
+                              <li class="bg-green" *ngIf="b.status=='confirmed' || b.status=='Confirmed'"> {{'confirm' | translate}} </li>
+                            <li class="bg-red" *ngIf="b.status=='cenceled' || b.status=='Cenceled'"> {{'reject' | translate}} </li>
+                            <li class="bg-black" *ngIf="b.status=='Pending' || b.status=='pending'"> {{'pending' | translate}} </li>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+              <!--       <div class="event_action">
+                        <ul class="action_ul">
+                            <li class="bg-green"> Confirm </li>
+                            <li class="bg-red"> Reject </li>
+                        </ul>
+                    </div>
+                    <div class="event_panel">
+                        <div class="menu_box brd-b" color="orange">
+                            <div class="grid-3 text-left">
+                                Owner
+                            </div>
+                            <div class="grid-3 text-center">
+                                What to bring?
+                            </div>
+                            <div class="grid-3 text-right">
+                                Status
+                            </div>
+                        </div>
+                        <div class="menu_box">
+                            <div class="grid-3 text-left">
+                                John Smith
+                            </div>
+                            <div class="grid-3 text-center">
+                                Chicken
+                            </div>
+                            <div class="grid-3 text-right">
+                                 <img src="./assets/imgs/green.png" /> 
+                                <ion-icon name="md-checkmark"></ion-icon>
+                            </div>
+                        </div>
+                        
+                    </div> -->
+                </div>
+            </ion-list>
+        </div>
+    </div>
+
+    <div class="wrap-post" *ngIf="post_img">
+        <div class="img-post-div">
+            <div class="img-post-event">
+                <img src={{pic}}>
+            </div>
+            <button ion-button block (click)="onPostImage()" class="post-btn">{{'post' | translate}}</button>
+            <button ion-button block  (click)="onPostImageCancel()" class="cancel-btn">{{'cancel' | translate}}</button>
+        </div>
+    </div>
+
+
+</ion-content>

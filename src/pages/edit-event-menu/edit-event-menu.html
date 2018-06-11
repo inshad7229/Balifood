@@ -1,0 +1,61 @@
+<ion-header>
+   <ion-navbar hideBackButton>
+   <ion-buttons  left>
+        <button ion-button (click)="goBack()">
+           <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+      <ion-title>{{'editmenu' | translate}}</ion-title>
+      <ion-buttons end (click)="onEvent()">
+         <button ion-button icon-only >
+            <ion-icon name="icon-event" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content" padding>
+   <div class="btn-div">
+      <button ion-button block (click)="onAdd()">
+         {{'addnewitem' | translate}}
+         <ion-icon name="add"></ion-icon>
+      </button>
+   </div>
+   <div *ngIf="Menu_event">
+      <ion-card *ngFor="let Menu of Menu_event">
+         <ion-card-content *ngIf="Menu.deleted != true" >
+            <ion-item>
+               <ion-label>{{'itemname' | translate}}:</ion-label>
+               <ion-input type="text" placeholder="Item name" [(ngModel)]="Menu.item_name" disabled></ion-input>
+               <ion-icon name="md-create" item-right (click)="onUpdateMenu(Menu)" *ngIf="editEvent"></ion-icon>
+               <ion-icon name="trash" item-right (click)="presentConfirm(Menu._id, Menu)" *ngIf="editEvent"></ion-icon>
+            </ion-item>
+            <ion-item *ngIf="eventType!='myEvent'">
+               <ion-label>{{'ownername' | translate}}:</ion-label>
+               <ion-input type="text" placeholder="Owner" [ngModel]="Menu.owner_name" disabled></ion-input>
+			     <ion-icon  *ngIf="Menu.owner_id!=me" ios="ios-refresh" md="md-refresh" item-right (click)="onDeleteOwner(Menu)" ></ion-icon>
+            </ion-item>
+            <ion-item>
+               <ion-label>{{'status' | translate}}:</ion-label>
+                <ion-input type="text" placeholder="Owner" [ngModel]="Menu.status" disabled></ion-input>
+            </ion-item>
+            <ion-item>
+               <ion-label>{{'type' | translate}}:</ion-label>
+               <ion-input type="text" placeholder="Type" [(ngModel)]="Menu.menuType" disabled></ion-input>
+            </ion-item>
+            <!--ion-item>
+               <ion-label>Grade:</ion-label>
+               <ion-input type="text" placeholder="Type" [(ngModel)]="Menu.grade" disabled></ion-input>
+            </ion-item>
+             <ion-item>
+               <ion-label>Score:</ion-label>
+               <ion-input type="text" placeholder="Type" [(ngModel)]="Menu.score" disabled></ion-input>
+            </ion-item-->
+            <ion-item>
+               <ion-label>{{'viewrecipelink' | translate}}:</ion-label>
+               <ion-input type="text" placeholder="{{'addrecipelink' | translate}}" [(ngModel)]="Menu.recipe_link" disabled></ion-input>
+            </ion-item>
+         </ion-card-content>
+      </ion-card>
+   </div>
+</ion-content>
+

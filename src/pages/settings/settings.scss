@@ -1,0 +1,136 @@
+page-settings {
+
+.toolbar-title-md {
+    color: #ff8b00;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0px 35px 0px 0px;
+    text-align: center;
+    font-family: 'Arcon-Regular';
+}
+.main-color{
+	color: #ff8b00;
+}
+	.bar-buttons-md{
+	    order: 1;
+		-webkit-order: 1;
+		-ms-flex-order: 1;
+	}
+	.setting-page .block-div{
+        margin-bottom: 10px;
+        font-family: 'Arcon-Regular';
+    }
+    .toggle-ios {
+        width: 41px;
+        height: 22px;
+        margin-top: -5px;
+    }
+    .toggle-ios .toggle-inner{
+        width: 18px;
+        height: 18px;
+    }
+    .social-setting{
+        width: 100%;
+        float: left;
+    }
+    .social-setting li{
+        padding-left: 45px;
+        position: relative;
+        margin-bottom: 10px;
+        width: 100%;
+        float: left;
+    }
+    .social-setting li > span.icon{
+        width: 23px;
+        top:0;
+        left: 0;
+        font-size: 17px;
+        position: absolute;
+        text-align: center;
+    }
+   
+    .social-setting li > span.icon img{
+        display: inline-block;
+    }
+    .social-setting li > span.icon .ion-logo-facebook{
+        color: #4061A0;
+    }
+    .social-setting.no-icons li{
+    	padding-left: 0;
+    }
+
+    .toggle-md .toggle-icon{
+        background-color: #b4b4b4;
+    }
+}
+
+
+
+.custom-search .searchbar-ios {
+    padding: 0;
+    border-top: 0;
+    min-height: 40px;
+    border-bottom: 1px solid #a9a9a9;
+    background: transparent;
+}
+
+.custom-search .searchbar-md{
+	padding: 0;
+}
+.custom-search .searchbar-md .searchbar-search-icon{
+    left: 5px;
+}
+.custom-search .searchbar-md .searchbar-input{
+	padding: 6px 30px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.custom-btn{
+	background-color: #FF7C08;
+	margin: 0;
+	font-size: 12px;
+	text-transform: none;
+}
+
+
+.m-b-10{
+    margin-bottom: 10px;
+}
+.m-0{
+    margin: 0;
+}
+.p-0{
+    padding: 0;
+}
+.full-width{
+	width: 100%;
+}
+.pull-right{
+    float: right;
+}
+.color-orange{
+    color: #FF7C08;
+}
+.bg-orange{
+    background-color: #FF7C08;
+}
+.font16{
+    font-size: 16px;
+}
+.font18{
+    font-size: 18px;
+}
+
+.btn-sm {
+    padding: 0 0.6em;
+    height: 2.4em;
+}
+.block-div{
+    width: 100%;
+    float: left;
+}
+.brd-b{
+    border-bottom: 1px solid #a9a9a9;
+}

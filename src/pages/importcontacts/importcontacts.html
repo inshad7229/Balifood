@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Invite Freinds</ion-title>
+    <ion-buttons end (click)="onInviteAll()">
+         <button ion-button small class="custom-btn">
+         Invite all
+         </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  class="content">
+	<div class="notification-sec">
+		<ul class="m-0 p-0 user_ul1" type="none" >
+			<li *ngFor="let a of contacts">
+				<div class="img-left"> <img class="circle-img" src="assets/imgs/profiler.png" /> </div>
+				<div class="right-content padding-right">
+					<h4> {{a.displayName}} </h4>
+					<span class="status-import" (click)="Send(a.phoneNumbers[0].value)"> Invite </span>
+				</div>
+			</li>
+		</ul>
+	</div>	
+</ion-content>

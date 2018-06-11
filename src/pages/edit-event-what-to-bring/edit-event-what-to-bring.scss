@@ -1,0 +1,129 @@
+page-edit-event-what-to-bring {
+	.toolbar-title-md {
+		color: #ff8b00;
+		font-size: 2rem;
+		font-weight: 500;
+		padding: 0 45px 0 0;
+		text-align: center;
+		font-family: 'Arcon-Regular';
+	}
+		.bar-button-md[icon-only] ion-icon {
+    padding: 0 0.1em;
+    min-width: 28px;
+    font-size: 1.8em;
+    line-height: .67;
+    pointer-events: none;
+    color: #ff8b00;
+}
+	.icon.icon-md.ion-md-trash.item-icon {
+	font-size: 18px;
+	color: #ff8b00;
+	padding: 0;
+	margin: 0;
+}
+	.icon.icon-md.ion-md-create.item-icon {
+		font-size: 16px;
+		color: #ff8b00;
+	}
+	.disable-hover.button.button-md.button-default.button-default-md.button-block.button-block-md {
+		background: #ff8b00;
+		text-transform: capitalize;
+		text-align: center;
+	}
+	.item-md.item-input.item-input-has-focus .item-inner,
+	.item-md.item-input.input-has-focus .item-inner {
+		border-bottom-color: transparent;
+		box-shadow: 0 -1px 0 0 transparent inset;
+	}
+	.item-ios.item-input.item-input-has-focus .item-inner,
+	.item-ios.item-input.input-has-focus .item-inner {
+		border-bottom-color: transparent;
+		box-shadow: 0 -1px 0 0 transparent inset;
+	}
+	.item-md.item-block .item-inner {
+		border-bottom: 0;
+	}
+	.content {
+		font-family: 'Arcon-Regular';
+		background: #fff;
+	}
+	.toolbar-title-md {
+		color: #ff8b00;
+		font-size: 2rem;
+		font-weight: 500;
+		padding: 0 45px 0 0;
+		text-align: center;
+		font-family: 'Arcon-Regular';
+	}
+	.select-md .select-icon .select-icon-inner {
+		left: 5px;
+		top: 50%;
+		margin-top: -3px;
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 5px solid;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		color: #999;
+		pointer-events: none;
+		display: none;
+	}
+	.label-md {
+		margin: 13px 8px 13px 5px;
+	}
+	.label-ios {
+		margin: 13px 8px 13px 5px;
+	}
+	.select-ios .select-icon .select-icon-inner {
+		left: 5px;
+		top: 50%;
+		margin-top: -3px;
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 5px solid;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		color: #999;
+		pointer-events: none;
+		display: none;
+	}
+	.disable-hover.button.button-md.button-default.button-default-md.button-block.button-block-md {
+		background: #ff8b00;
+		text-transform: capitalize;
+		font-family: 'Arcon-Regular';
+	}
+	.item-md {
+		padding-left: 0px;
+		border-bottom-color: #cecece;
+		box-shadow: 0 -1px 0 0 #cecece inset;
+	}
+	.icon.icon-md.ion-md-add.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.icon.icon-md.ion-ios-arrow-down.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.icon.icon-md.ion-ios-link.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.content {
+		font-family: 'Arcon-Regular';
+		background: #fff;
+	}
+	.item-md.item-input.item-input-has-focus .item-inner,
+	.item-md.item-input.input-has-focus .item-inner {
+		border-bottom-color: transparent;
+		box-shadow: 0 -1px 0 0 #cecece inset;
+	}
+	.item-ios.item-input.item-input-has-focus .item-inner,
+	.item-ios.item-input.input-has-focus .item-inner {
+		border-bottom-color: transparent;
+		box-shadow: 0 -1px 0 0 #cecece inset;
+	}
+}
+

@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title> {{'settings' | translate}} </ion-title>  
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="setting-page">
+        <div class="block-div" (click)="onChangePassword()">
+            <h5>{{'account' | translate}}</h5>
+            {{'changepassword' | translate}}
+        </div>
+        <div class="block-div brd-b">
+            {{'privateaccount' | translate}} <span class="pull-right"><ion-toggle [(ngModel)]="pepperoni" (ngModelChange)="onTogglePrivacy(pepperoni)"></ion-toggle></span>
+
+            <p><small> {{'settingtext' | translate}}  </small></p>
+           
+        </div>
+
+        <div class="block-div brd-b">
+       
+            <h5>{{'application' | translate}}</h5>
+             <p (click)="onLanguageChange()">{{'language' | translate}}</p>
+            <p (click)="onNotification()">{{'notificationssettings' | translate}}</p>
+        </div>
+
+        <div class="block-div brd-b">
+            <h5>{{'social' | translate}}</h5>
+            <ul class="m-0 p-0 social-setting" type="none">
+                <li> <span class="icon"><ion-icon name="logo-facebook"></ion-icon> </span> {{'importfriendsfromfb' | translate}} </li>
+                <li (click)="onContactimport()"> <span class="icon"><i class="fa fa-address-book"></i> </span> {{'importfromcontacts' | translate}}</li>
+                <li (click)="onShareWith()"> <span class="icon"><img src="./assets/imgs/app-icon.png"> </span> {{'recommendBalifood' | translate}} </li>
+            </ul>
+        </div>
+
+        <div class="block-div brd-b">
+            <h5>{{'support' | translate}}</h5>
+            <ul class="m-0 p-0 social-setting no-icons" type="none">
+                <li (click)="onContact()"> {{'contactus' | translate}} </li>
+                
+            </ul>
+        </div>
+
+        <div class="block-div brd-b">
+            <h5>{{''}}</h5>
+            <ul class="m-0 p-0 social-setting no-icons" type="none">
+                <li (click)="onAboutUs()"> {{'aboutus' | translate}} </li>
+                <li (click)="onTerm()"> {{'terms' | translate}}</li>
+                <li (click)="onFaq()"> {{'faq' | translate}} </li>
+            </ul>
+        </div>
+
+        <div class="block-div brd-b" (click)="onLogout()">
+            <h5 class="main-color">{{'logout' | translate}}</h5>
+        </div>
+       
+
+    </div>
+
+  
+</ion-content>

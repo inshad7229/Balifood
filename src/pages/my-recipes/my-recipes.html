@@ -1,0 +1,114 @@
+
+<ion-header>
+   <ion-navbar>
+      <ion-searchbar (ionInput)="getItems($event)" placeholder="{{'search' | translate}}"></ion-searchbar>
+      <ion-buttons end>
+         <button ion-button icon-only (click)="onIconlist()" *ngIf="list=='true'">
+         <ion-icon name="icon-listed-view" class="icon-color"> </ion-icon>
+         </button>
+         <button ion-button icon-only (click)="onIcongrid()" *ngIf="list!='true'">
+           <ion-icon name="icon-tiled-view" class="icon-color"> </ion-icon>
+         </button>
+         <button ion-button icon-only (click)="presentPopover()" *ngIf="!post">
+            <ion-icon name="icon-dropdown-list" class="icon-color"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+   <div class="pop" *ngIf="pop_div=='true'">
+      <div class="pop-div" (click)="onImports()">
+         <ion-icon name="ios-camera" class="pop-icon1"></ion-icon>
+      </div>
+      <div class="pop-div" (click)="AddUrl()">
+         <ion-icon name="icon-earth-500" class="pop-icon">
+         </ion-icon>
+      </div>
+      <div class="pop-div" (click)="onClipboard()">
+         <ion-icon name="icon-notepad" class="pop-icon"></ion-icon>
+      </div>
+      <div class="pop-div" (click)="onNewRecipe()" >
+           <ion-icon name="icon-add-recipe" class="pop-icon"></ion-icon>
+      </div>
+   </div>
+</ion-header>
+<ion-content class="content">
+   <ion-spinner name="dots" *ngIf="!Category2"></ion-spinner>
+   <div class="grid-view" *ngIf="list!='true' && Category2" >
+
+      <ul class="p-0 list-ul" type="none" >
+         <li *ngFor="let a of Category2" (click)="onRecipes(a)">
+
+         <a >
+            <img src={{catImage(a.categoryData)}}  />
+            <div class="action-box">
+			   <span class="cat-text" *ngIf=false> <b>{{a.category}}</b> </span>
+               <span class="cat-text" *ngIf=true> <b>{{a.categoryHebrew}}</b> </span>
+               <span class="cat-count pull-right"> {{a.order}} </span>
+            </div>
+         </a>
+         </li>
+         <li (click)="OnSavedRecipes()">
+            <a >
+               <img src="assets/imgs/korean.jpg" />
+               <div class="action-box">
+                  <span><b> {{'savedrecipe' | translate}} </b></span>
+                  <span class="pull-right">{{savelength}}</span>
+               </div>
+            </a>
+         </li>
+         <li (click)="OnFavouriteREcipe()">
+            <a >
+               <img src="assets/imgs/korean.jpg" />
+               <div class="action-box">
+                  <span><b>{{'favouriterecipe' | translate}}</b></span>
+                  <span class="pull-right">{{fav_length}}</span>
+               </div>
+            </a>
+         </li>
+      </ul>
+   </div>
+   <div class="list-item" *ngIf="list=='true' && Category2" >
+      <div class="div-list" *ngFor="let a of Category2" (click)="onRecipes(a)">
+         <div class="img-div pull-left">
+            <img src={{catImage(a.categoryData)}}>
+         </div>
+         <div class="img-text">
+            <div class="extra-div" *ngIf=false><b>{{a.category}}</b></div>
+            <div class="extra-div" *ngIf=true><b>{{a.categoryHebrew}}</b></div>
+			
+            <div class="extra-div1">{{a.order}}</div>
+         </div>
+      </div>
+
+   <div class="div-list" (click)="OnSavedRecipes()">
+      <div class="img-div pull-left">
+         <img src="assets/imgs/korean.jpg">
+      </div>
+      <div class="img-div">
+         <div class="extra-div"><b>{{'savedrecipe' | translate}}</b></div>
+         <div class="extra-div1">{{savelength}}</div>
+      </div>
+   </div>
+   <div class="div-list" (click)="OnFavouriteREcipe()">
+      <div class="img-div pull-left">
+         <img src="assets/imgs/korean.jpg">
+      </div>
+      <div class="img-div">
+         <div class="extra-div"><b>{{'favouriterecipe' | translate}}</b></div>
+         <div class="extra-div1">{{fav_length}}</div>
+      </div>
+   </div>
+   </div>
+
+
+   <div class="custom-alert" *ngIf="addurlvalue">
+      <div class="header-text">{{'addurl' | translate}}</div>
+       <ion-item  class="item-ing">
+               <ion-input type="text" placeholder="{{'addurlhere' | translate}}" [(ngModel)]="urltext" ></ion-input>
+            </ion-item>
+            <div class="cus-alert-btn">
+               <button ion-button small class="cus-alert-btn-left" (click)="onCancel()">{{'cancel' | translate}}</button>
+               <button ion-button small class="cus-alert-btn-right" (click)="onRecipeTextAdd()">{{'add' | translate}}</button>
+            </div>
+   </div>
+</ion-content>
+

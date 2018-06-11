@@ -1,0 +1,96 @@
+page-events {
+      .content{
+     font-family: 'Arcon-Regular';
+	}
+	.pop {
+	width: 35%;
+	float: right;
+	position: absolute;
+	top: 44px;
+	right: 15px;
+	background: #fff;
+	z-index: 1;
+	box-shadow: 2.5,8,9,7 rgba(0,0,0,0.5);
+	font-family:'Arcon-Regular';
+}
+.pop-div {
+    padding: 10px;
+}
+	.plus-icon{
+	color:#ff8b00;
+	}
+	.event-sec{
+		width: 100%;
+		float: left;
+		max-height: 26%;
+		overflow: auto;
+	}
+	.list-ios, .list-md{
+		margin: 0;
+	}
+}
+.event-box{
+	width: 100%;
+	float: left;
+	padding-left: 30px;
+	border-bottom: 1px solid #ddd;
+	.icon-div{
+		width: 100%;
+		float: left;
+		margin-bottom: 5px;
+	}
+	.icon{
+		width: 25px;
+		float: left;
+	}
+	.icon-text{
+		width: calc(100% - 25px);
+		float: left;
+	}
+}
+.event_ul{
+	width: 100%;
+	float: left;
+    max-height: 50vh;
+    overflow: auto;
+	li{
+		width: 100%;
+		float: left;
+		border-bottom: 1px solid #ddd;
+	}
+}
+
+
+/*custom tab*/
+.custom-tab .segment-ios .segment-button:first-of-type, .segment-ios .segment-button:last-of-type {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.custom-tab{
+	.segment-ios .segment-button, .segment-md .segment-button{
+	    background-color: #000;
+	    color: #fff;
+	    border-left: 0;
+	    border-right: 0;
+	    border-top: 0;
+	    height: 4.5rem;
+	    line-height: 4.3rem; 
+	    border-bottom: 3px solid transparent;
+	}
+	.segment-md .segment-button{
+		opacity: 1;
+	}
+}
+.segment-ios .segment-button:hover:not(.segment-activated){
+	background-color: #000;
+    color: #fff;
+}
+.custom-tab{
+	.segment-ios .segment-button.segment-activated, .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+	    background-color: #000;
+	    color: #fff;
+	    border-bottom-color: #ff8b00;
+	}
+}

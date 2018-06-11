@@ -1,0 +1,144 @@
+ionic version 3.19.1
+
+
+FCM Push notification 
+https://console.firebase.google.com/project/balifood-34c2a/overview
+
+Server key New BaliFood
+AAAAyIIdMpU:APA91bF6djgonSxyf9mjbRLvRbiLaAuE4QtyfgEmfm7wQzw9mj2TTwXpFq0qL_gdotTildNR38fB8AN5OqK6d6wN0HltQnNylODBsCTdb0Lrg-HUDHPYVAYhhDoDRyaGANacyOiwGqGO
+
+test notification
+https://cordova-plugin-fcm.appspot.com/
+
+Legacy server key New BaliFood
+
+AIzaSyCiB6NWuCzqLCB5cBIE8BpgOZo7x9u9qt8
+
+ Sender ID New BaliFood
+ 861176410773
+
+ Project name
+Balifood
+Public-facing name help_outline
+project-851123279995
+Project ID help_outline
+balifood-34c2a
+Web API Key
+AIzaSyDPVyLGHFPiQ2YefsMaGTPFXhhyKh0BxrU 
+
+
+
+
+Keyhash
+ga0RGNYHvNM5d0SLGQfpQWAPGJ8=
+
+
+ export ANDROID_HOME='/home/promatics/android-sdk-linux/'
+
+ export ANDROID_HOME='/media/pro106/ba5cccd8-908b-42e2-9bba-aa8717ded863/android'
+  export ANDROID_HOME='/home/pro251/android/'
+ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+ export JAVA_HOME=/usr/lib/jvm/java-8-oracle/bin
+
+ smb://192.168.1.252/share/Hybrid/avtar/
+
+
+
+Android Enviornment set
+
+
+http://stackoverflow.com/questions/36198165/failed-to-find-android-home-environment-variable
+
+/media/pro106/ba5cccd8-908b-42e2-9bba-aa8717ded863/android
+
+daemon.json file corrupt 
+
+
+rm ~/.ionic/daemon.json
+
+
+For Stripe :-
+
+Standard API keys
+
+Publishable key: pk_test_FuxItpTrzmm5hi8MqmOCbFqO
+
+Secret key: sk_test_9DocVH7jsq08ObB97wlAbpA1
+
+https://www.thepolyglotdeveloper.com/2015/12/use-sqlite-in-ionic-2-instead-of-local-storage/
+
+
+
+service:
+
+europa.promaticstechnologies.com/bidwork/api/tradesman/preferences
+
+params:email,category,keyword
+
+Publish Build android 
+Screen size: 1080*1920 px jpg
+
+180*120 png
+512*512 png
+1024*500 png
+1280*720 png
+4096*4096 png
+
+
+maktbti@gmail.com
+mak!123123
+
+app live link 
+http://ionicframework.com/docs/v1/guide/publishing.html
+
+https://stackoverflow.com/questions/13898423/javascript-convert-24-hour-time-of-day-string-to-12-hour-time-with-am-pm-and-no
+
+
+For Latest NPM install 
+
+npm install npm@latest -g
+
+
+1 Install npm:
+
+sudo apt-get install npm
+
+    Install n
+
+sudo npm install n -g
+
+    Get latest version of node
+
+sudo n latest
+
+If you prefer to install a specific version of `node you can
+
+2.1 List available node versions
+
+n ls
+
+2.2 and the install a specific version
+
+sudo n 4.5.0
+
+
+install java 
+https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
+
+
+
+ here are the credentials.
+Apple: username: Manrich11@gmail.com
+Password: Manrich11
+
+Google: ochoar49@gmail.com
+Pass: Manrich11
+
+Sent from my iPhone
+
+Balifood keystore
+
+7l/6USgNTLUyKYh8T/okz2/1HgU=
+
+Bidwork keystore id
+z4gtqHq+Bfnnv4ufILiggRtIUAs=

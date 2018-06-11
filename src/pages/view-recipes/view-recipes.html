@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{recipeTitle}}
+            <p class="main-color" *ngIf="userName">{{userName}}</p>
+        </ion-title>  
+        
+        <ion-buttons end *ngIf="!userName">
+            <button icon-only ion-button (click)="onEditRecipe()"  class="btn-notify" *ngIf="!post">
+                <ion-icon name="md-create" class="create-icon"></ion-icon>
+           </button>
+
+            <button icon-only ion-button (click)="ondeleteRecipe()"  class="btn-notify"  *ngIf="!post">
+                <ion-icon name="md-trash" class="create-icon"></ion-icon>
+           </button>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="conent">
+<div class="full">
+    <div class="card">
+        <div class="cus-slider">
+            <div class="top-slide top color-orange">
+                <span class="pull-right" (click)="share()"><ion-icon name="icon-share-recipe"></ion-icon> </span>
+            </div>
+            <ion-slides  *ngIf="!videoUrl" >
+                <ion-slide>
+                    <img src={{mainImage}}/>
+                </ion-slide>
+
+                
+            </ion-slides>
+             <div  *ngIf="videoUrl" >
+                 <div class="video-img"(click)="playvideo1(videoUrl)">
+                     <img src="assets/icon/video.png" >
+                  </div>
+                  <img src={{mainImage}}  class="img-src1">
+             </div>
+            <div class="top-slide bottom color-orange" >
+                <span (click)="onLike()"> <i class="fa fa-thumbs-up  maincolor"> {{likes}} </i></span>
+                <span class="pull-right"><i class="fa fa-eye maincolor"> {{views}}</i> </span>
+            </div>
+        </div>
+
+        <div class="block-div">
+            <p> <span class="font16"> {{mealType}}</span><span> <b>{{'duration'| translate}}:</b> {{duration}}, {{level}} </span>  </p>
+        </div>
+
+        <ul class="images-list p-0" type="none">
+            <li *ngFor="let a of recipeImages;let i=index" (click)="onImage(a)" > <img src={{a}} class="img-src" /> </li>
+        
+        </ul>
+
+        <div class="block-div"> <span class="pull-right"> 
+        <button ion-button class="btn custom-btn1 btn-sm" (click)="cookmode1()" *ngIf="!cook"> {{'cookmode' | translate}} </button>
+        <button ion-button class="btn custom-btn btn-sm" (click)="cookmode()" *ngIf="cook"> {{'cookmode' | translate }} </button>
+         </span> </div>
+
+        <div class="block-div">
+            <h5> {{'description'| translate}} </h5>
+            <p>
+                {{description}}
+            </p>
+        </div>
+
+        <div class="block-div">
+            <h5> {{'categories'| translate}}: <span>{{categories}}</span></h5>
+            
+        </div>
+        <div class="block-div">
+            <h5> {{'ingre'| translate}} </h5>
+
+            <ul  type="none" class="green-tick">
+                <li *ngFor="let a of ingredientss;let i=index"  (click)="onCookeding(i)" [ngClass]="(a.checkStatus==true) ? 'checked' : ''">{{i+1}}. {{a.ing}}
+                    <!--ion-icon  *ngIf="a.checkStatus==true" name="md-checkmark" class="pull-right check"></ion-icon-->
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="block-div">
+            <h5> {{'instructions'| translate}} </h5>
+
+            <ul  type="none" class="green-tick">
+                <li *ngFor="let a of instructionss;let i=index" (click)="onCookedins(i)" [ngClass]="(a.checkStatus==true) ? 'checked' : ''">{{i+1}}. {{a.ins}}
+                 <!--ion-icon name="md-checkmark" class="pull-right check" *ngIf="a.checkStatus==true" ></ion-icon--> </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+    
+</ion-content>
+<ion-footer *ngIf="post"><button ion-button block class="save-btn" (click)="onPost()">{{'post'| translate}}</button></ion-footer>
+
+<ion-footer *ngIf="camera_post"><button ion-button block class="save-btn" (click)="onattchedRecipe()">{{'attachedrecipe' | translate}}</button></ion-footer>
+
+

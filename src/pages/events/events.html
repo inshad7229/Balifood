@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title> {{'events' | translate}} </ion-title>  
+		
+        <ion-buttons end>
+		
+            <button icon-only ion-button  class="btn-notify" (click)="onPop()">
+                <ion-icon name="md-add" class="plus-icon"></ion-icon>
+           </button>
+        </ion-buttons>
+    </ion-navbar>
+    <div class="pop" *ngIf="pop_div=='true'">
+    <div class="pop-div" (click)="onMyEvent()">
+   {{'myevents' | translate}}
+</div>
+    <div class="pop-div" (click)="onMutualEvent()">
+    {{'mutualevents' | translate}}
+     </div>
+</div>
+</ion-header>
+
+<ion-content class="content">
+
+        <div class="event-sec" >
+        <div class="event-box" *ngFor="let a of todayEvent" (click)="OnEvents(a)">
+            <h4>{{a.event_name}}</h4>
+            <div class="icon-div">
+                <span class="icon"> <ion-icon name="ios-calendar-outline" ></ion-icon>  </span> 
+                <div class="icon-text"> {{change(a.date)}} </div>
+            </div>
+            <div class="icon-div">
+                <span class="icon"> <ion-icon name="md-time" ></ion-icon>  </span> 
+                <div class="icon-text"> {{a.time}} </div>
+            </div>
+            <div class="icon-div">
+                <span class="icon"> <ion-icon name="ios-pin-outline" ></ion-icon>  </span> 
+                <div class="icon-text"> {{a.address}} </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="custom-tab">
+        <ion-segment [(ngModel)]="event">
+            <ion-segment-button value="past">
+                {{'past' | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="upcoming">
+                {{'upcoming' | translate}}
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div [ngSwitch]="event">
+        <ion-list *ngSwitchCase="'past'">
+            <ul class="event_ul m-0 p-0" type="none">
+                <li *ngFor="let a of PastEvent" (click)="OnEvents(a)">
+                    <div class="event-box">
+                        <h4> {{a.event_name}}</h4>
+                        <div class="icon-div">
+                            <span class="icon"> <ion-icon name="ios-calendar-outline" ></ion-icon>  </span> 
+                            <div class="icon-text"> {{change(a.date)}} </div>
+                        </div>
+                        <div class="icon-div">
+                            <span class="icon"> <ion-icon name="md-time" ></ion-icon>  </span> 
+                            <div class="icon-text"> {{a.time}} </div>
+                        </div>
+                        <div class="icon-div">
+                            <span class="icon"> <ion-icon name="ios-pin-outline" ></ion-icon>  </span> 
+                            <div class="icon-text"> {{a.address}}</div>
+                        </div>
+                    </div>
+                </li>
+         
+
+            </ul>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'upcoming'">
+            <ul class="event_ul m-0 p-0" type="none">
+                <li *ngFor="let a of upcomingEvent" (click)="OnEvents(a)">
+                    <div class="event-box">
+                        <h4>{{a.event_name}}</h4>
+                        <div class="icon-div">
+                            <span class="icon"> <ion-icon name="ios-calendar-outline" ></ion-icon>  </span> 
+                            <div class="icon-text"> {{change(a.date)}}</div>
+                        </div>
+                        <div class="icon-div">
+                            <span class="icon"> <ion-icon name="md-time" ></ion-icon>  </span> 
+                            <div class="icon-text"> {{a.time}}</div>
+                        </div>
+                        <div class="icon-div">
+                            <span class="icon"> <ion-icon name="ios-pin-outline" ></ion-icon>  </span> 
+                            <div class="icon-text"> {{a.address}}</div>
+                        </div>
+                    </div>
+                </li>
+                
+
+            </ul>
+        </ion-list>
+    </div>
+
+</ion-content>

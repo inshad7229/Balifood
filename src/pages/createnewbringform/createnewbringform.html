@@ -1,0 +1,44 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>Create What To Bring Item</ion-title>
+      <ion-buttons start (click)="onClose()">
+         <button ion-button icon-only >
+            <ion-icon name="close" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <ion-card>
+      <ion-card-content>
+         <ion-item (click)="Ownername()" >
+            <ion-input type="text" placeholder="Owner" [(ngModel)]="Menu.memberName" disabled></ion-input>
+            <ion-icon name="add" item-right></ion-icon>
+         </ion-item>
+         <ion-item >
+            <ion-input type="text" placeholder="what to bring?" [(ngModel)]="bringitem" ></ion-input>
+            <ion-icon name="add" item-right (click)="addmore()"></ion-icon>
+         </ion-item>
+
+        <!--  <ion-item >
+            <ion-input type="text" placeholder="Status" [(ngModel)]="Menu.status" ></ion-input>
+           
+         </ion-item> -->
+         <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="Menu.status">
+            <ion-option value="pending">Pending</ion-option>
+            <ion-option value="Confirmed">Confirmed</ion-option>
+            <ion-option value="Rejected">Rejected</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+      </ion-card-content>
+   </ion-card>
+</ion-content>
+<ion-footer>
+   <button ion-button block (click)="onSaveMenu()">Save</button>
+</ion-footer>
+

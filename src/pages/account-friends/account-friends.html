@@ -1,0 +1,31 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title> Freinds</ion-title>
+   </ion-navbar>
+</ion-header>
+<ion-content  class="content">
+   <div class="custom-search1 m-b-10">
+      <ion-searchbar (ionInput)="getUsers($event)" placeholder="Search here..."></ion-searchbar>
+   </div>
+   <div class="notification-sec" *ngIf="allUser">
+      <ul class="m-0 p-0 user_ul1" type="none"  *ngFor="let a of allUser">
+         <li>
+            <div class="img-left" *ngIf="!a.profileImage"> 
+               <img class="circle-img" src="assets/imgs/profiler.png" /> 
+            </div>
+            <div class="img-left" *ngIf="a.profileImage"> 
+               <img class="circle-img" src={{a.profileImage}} /> 
+            </div>
+            <div class="right-content padding-right">
+               <h4> {{capitalizeFirstLetter(a.username)}}  </h4>
+               <button ion-button small class="status-import" (click)="onAddToFriend(a.contactNumber,a._id)" *ngIf="a.friendStatus=='false'"> Add Friend </button>
+               <button ion-button small class="status-import" (click)="onAddToFriend(a.contactNumber,a._id)" *ngIf="a.friendStatus=='true'"> Unfriend </button>
+               <button ion-button small class="status-import1" *ngIf="a.friendStatus=='pending'"> Pending </button>
+            </div>
+         </li>
+      </ul>
+   </div>
+</ion-content>
+

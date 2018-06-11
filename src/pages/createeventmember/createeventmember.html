@@ -1,0 +1,48 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>Add Members</ion-title>
+      <ion-buttons end >
+         <button ion-button icon-only (click)="onAddMembers()">
+            <ion-icon name="md-checkmark-circle" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <div class="search-div">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+   </div>
+   <div class="event_details-sec">
+      <ul class="user_list">
+         <li  *ngFor="let a of extradata;let i=index">
+            <div >
+               <div class="user_img" >
+                  <img src={{a.profileImage}}  *ngIf="a.profileImage"/>
+                  <img src="assets/imgs/profiler.png"  *ngIf="!a.profileImage"/>
+                  <span class="">
+                     <ion-icon name="md-close" (click)="onremovemember(i)"></ion-icon>
+                  </span>
+               </div>
+               <div class="user_name">{{a.username}} </div>
+            </div>
+         </li>
+      </ul>
+   </div>
+   <ul class="m-0 p-0 user_ul" type="none">
+      <li *ngFor="let a of allUser;let i=index" (click)="onCheckmember(i,a)">
+      <div class="img-left"  >
+         <img class="circle-img" src={{a.profileImage}} *ngIf="a.profileImage"/> 
+         <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.profileImage"/> 
+         <span class="icon-btm" *ngIf="a.checkStatus==true">
+            <ion-icon name="md-checkmark" ></ion-icon>
+         </span>
+      </div>
+      <div class="right-content padding-right">
+         <h4>{{a.username}} </h4>
+      </div>
+      </li>
+   </ul>
+</ion-content>
+

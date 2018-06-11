@@ -1,0 +1,21 @@
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>Faq</ion-title>
+   </ion-navbar>
+</ion-header>
+<ion-content padding class="content">
+   <div class="full-faq" *ngFor="let a of dataa;let i=index">
+      <div class="full-ques" (click)="question(i)">
+         <div class="ques" >
+            <span class="pull-left">{{a.question}}</span>
+            <span class="pull-right">
+               <ion-icon name="ios-arrow-up" *ngIf="answer!=i"></ion-icon>
+               <ion-icon name="ios-arrow-down" *ngIf="answer==i"></ion-icon>
+            </span>
+         </div>
+      </div>
+      <div class="answer"  *ngIf="answer==i">{{a.answer}}</div>
+   </div>
+</ion-content>
+

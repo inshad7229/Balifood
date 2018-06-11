@@ -1,0 +1,61 @@
+<ion-header>
+   <ion-navbar>
+      <ion-title>{{'myaccount' | translate}} </ion-title>
+      <ion-buttons start>
+         <button icon-only ion-button (click)="onSetting()"  class="btn-notify">
+            <ion-icon name="settings" class="setting-icon"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content>
+   <div class="user-box">
+      <div class="custom-search m-b-10">
+         <ion-searchbar (ionInput)="getItems($event)" placeholder="{{'search' | translate}}"></ion-searchbar>
+      </div>
+      <div class="edit-details" >
+         <div class="img-profile">
+            <img *ngIf="userimg()" src={{userimg()}}>
+            <img *ngIf="!userimg()" src="/assets/imgs/profiler.png">
+			
+         </div>
+         <div class="profile-access">
+            <ul class="p-0" type="none">
+               <li (click)="onfriendlink()" > <u class={{activefreind}}>{{'friendss' | translate}}</u>  </li>
+               <li (click)="onMyPost()"> <u class={{activePost}}> {{'posts' | translate}} </u> </li>
+               <li (click)="onInviteFriend()"> <u class={{activeinvite}}> {{'invite' | translate}} </u> </li>
+            </ul>
+            <button ion-button class="btn custom-btn full-width" (click)="onEditProfile()"> {{'changeprofile' | translate}} </button>
+         </div>
+      </div>
+      <div class="drawer">
+         <span class="drawer_name">{{username}}</span>
+         <span class="pull-right color-orange" (click)="onIconlist()" *ngIf="list=='true'">
+         <ion-icon name="icon-listed-view" ></ion-icon>
+         </span>
+         <span class="pull-right color-orange" (click)="onIcongrid()" *ngIf="list!='true'">
+         <ion-icon name="icon-tiled-view" ></ion-icon>
+         </span>
+      </div>
+   </div>
+   <div class={{listclass}}>
+      <ul class="p-0 list-ul" type="none" *ngIf="mypost">
+         <li *ngFor="let a of mypost">
+            <a (click)="onViewDetail(a._id,a)">
+               <img src={{a.mainImage}} />
+               <div class="action-box">
+                  <span>
+                     <ion-icon name="thumbs-up"></ion-icon>
+                     {{a.likes.length}} 
+                  </span>
+                  <span class="pull-right">
+                     <ion-icon name="eye"></ion-icon>
+                     {{a.views.length}} 
+                  </span>
+               </div>
+            </a>
+         </li>
+      </ul>
+   </div>
+</ion-content>
+

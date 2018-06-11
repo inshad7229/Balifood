@@ -1,0 +1,32 @@
+<ion-header>
+   <ion-navbar>
+      <ion-buttons start (click)="onClose()">
+         <button ion-button icon-only >
+            <ion-icon name="close" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+      <ion-searchbar (ionInput)="getItems($event)" class="search-bar" ></ion-searchbar>
+      <ion-buttons end (click)="onDone()">
+         <button ion-button icon-only >
+            <ion-icon name="md-checkmark-circle" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <ul class="m-0 p-0 user_ul" type="none" *ngIf="allUser">
+      <li *ngFor="let a of eventMember;let i=index" (click)="onCheckmember(i,a)">
+      <div class="img-left" >
+         <img class="circle-img" src={{a.profileImage}} *ngIf="a.profileImage"/> 
+         <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.profileImage"/> 
+         <span class="icon-btm" *ngIf="checkStatus==i">
+            <ion-icon name="md-checkmark" ></ion-icon>
+         </span>
+      </div>
+      <div class="right-content padding-right">
+         <h4>{{a.username}} </h4>
+      </div>
+      </li>
+   </ul>
+</ion-content>
+

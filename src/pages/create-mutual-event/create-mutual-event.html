@@ -1,0 +1,60 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>Create Mutual Event</ion-title>
+       <ion-buttons start (click)="onEvent()">
+         <button ion-button >
+          Cancel
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <div class="event">
+      <div class="event-img" (click)="presentActionSheet()">
+         <img src={{pic}}>
+      </div>
+      <div class="event-item-input">
+         <ion-item>
+            <ion-input type="text" placeholder="Event" [(ngModel)]="MutualEvent.event_name"></ion-input>
+            <ion-icon name="md-create" item-right></ion-icon>
+         </ion-item>
+      </div>
+      <div class="event-date-time">
+         <ion-item class="event-left">
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="MutualEvent.date" min={{min_date}} placeholder={{min_date}} max="2070-10-31"></ion-datetime>
+            <ion-icon name="md-calendar" item-right></ion-icon>
+         </ion-item>
+         <ion-item class="event-right">
+            <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Time" [(ngModel)]="MutualEvent.time" ></ion-datetime>
+            <ion-icon name="md-time" item-right></ion-icon>
+         </ion-item>
+      </div>
+      <div class="event-item-input">
+         <ion-item (click)="onLocation()">
+            <ion-input type="text" placeholder="Location" [(ngModel)]="MutualEvent.address" disabled></ion-input>
+            <ion-icon name="ios-pin-outline" item-right></ion-icon>
+         </ion-item>
+      </div>
+   </div>
+   <div class="event-btn">
+      <button ion-button block (click)="onSave()">Save</button>
+      <!--button ion-button block (click)="onAddMember()">Add Members</button>
+      <button ion-button block (click)="onBringItem()">Create What To Bring?</button>
+      <button ion-button block (click)="onMenuCreate()">Create Menu</button-->
+   </div>
+   <div class="pop-event" *ngIf="menuPopUp">
+      <div class="pop-event-wrap">
+         <div class="event-pop-text text-center">Create Menu</div>
+         <div class="pop-btn">
+            <button ion-button block (click)="onCreateNewMenu()">Create New</button>
+            <button ion-button block (click)="onCreateExistingMenu()">From Existing Event</button>
+         </div>
+      </div>
+   </div>
+</ion-content>
+<!--ion-footer>
+   <button ion-button block (click)="onSave()">Save</button>
+</ion-footer-->
+

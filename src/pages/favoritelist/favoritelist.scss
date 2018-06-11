@@ -1,0 +1,131 @@
+page-favoritelist {
+.toolbar-title-md {
+    color: #ff8b00;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0 12px 0 0;
+    text-align: center;
+        font-family: 'Arcon-Regular';
+}
+.bar-button-md[icon-only] {
+    padding: 0;
+    font-size: 11px;
+}
+  .content {
+    font-family: 'Arcon-Regular';
+    background: #f4f2f3;
+  }
+
+            .plus-icon-img{
+             max-width: 100%;
+            border: 0;
+            width: 100%;
+            display: block;
+            padding: 10px;
+            }
+    .pop-icon{
+        color: #ff8b00;
+      font-size: 25px;
+    }
+    .pop-div{
+        padding: 5px;
+    }
+    .pop{
+        width: 15%;
+        position: absolute;
+        top: 30;
+        right: 0;
+        background:#fff;
+        text-align: center;
+        z-index: 1;
+    }
+.search-right {
+    line-height: 4.5;
+}
+.icon-arrow{
+    color: #ff8b00;
+}
+.search-left {
+    width: 90%;
+    float: left;
+}
+.search-div {
+    width: 100%;
+    float: left;
+}
+.div-title{
+    text-align: center;
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.grid-view .list-ul > li > a img {
+    height: 110px;
+    padding: 5px;
+}
+.color{
+    padding-right: 3px;
+    color: #686868
+}
+.list-item{
+    float: left;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    border-bottom: 1px solid #cecece;
+    margin: 10px 0;
+}
+.img-div {
+    width: 100px;
+    -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    background: #fff;
+    float: left;
+    height: 80px;
+    img{
+        height: 100%;
+        object-fit: cover;
+        -o-object-fit: cover;
+        width: 100%;
+    }
+}
+.img-text{
+    width: 60%;
+    float: left;
+    padding-left: 10px;
+}
+.extra-div{
+    margin-top: 1.6rem;
+margin-bottom: 1rem;
+font-weight: 500;
+line-height: 1.2;
+}
+.extra-div1{
+margin-top: 1.6rem;
+margin-bottom: 1rem;
+font-weight: 300;
+line-height: 1.0;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.div-icon{
+    float: right;
+    > span{
+        margin-left: 30px;
+        display: inline-block;
+    }
+}
+
+.fa-th-large{
+    color: #ff8b00;
+    font-size: 20px;
+}
+.fa-th-list{
+color: #ff8b00;
+    font-size: 20px;
+  }
+}
+

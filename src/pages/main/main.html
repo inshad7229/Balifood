@@ -1,0 +1,101 @@
+<ion-header>
+   <ion-navbar>
+      <ion-buttons start (click)="creatRecipeCamera()">
+         <button ion-button icon-only >
+            <ion-icon name="camera" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+      <ion-searchbar (ionInput)="getItems($event)" class="search-bar" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" placeholder="{{'search' | translate}}"></ion-searchbar>
+      <ion-buttons end (click)="onPostRecipe()">
+         <button ion-button icon-only >
+         <i class="fa fa-paper-plane" aria-hidden="true"></i>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content" [ngClass]="recipedata ? 'pane' : ''">
+   <ion-spinner name="dots" *ngIf="!mySavedRecipe && !recipedata"></ion-spinner>
+   <div class="bgmain-color" *ngIf="mySavedRecipe && recipedata">
+      <div *ngFor="let a of recipedata">
+         <div class="main" *ngIf="a.status!=false || !a.categories ">
+            <div class="title-main" >
+               <div class="pull-left"><b>{{a.userName}}</b></div>
+               <div class="pull-right"><b>{{a.recipeTitle}}</b></div>
+            </div>
+            <div class="img-div">
+               <div class="top-img">
+                  <span class="pull-right">
+                     <ion-icon name="icon-share-recipe" class="maincolor" (click)="share(a.recipeTitle,a.mainImage)"></ion-icon>
+                  </span>
+               </div>
+               <img src={{a.mainImage}} class="img-src" *ngIf="!a.videoUrl">
+                  <div class="video-img" *ngIf="a.videoUrl" (click)="playvideo1(a.videoUrl)">
+                     <img src="assets/icon/video.png">
+                  </div>
+                  <img src={{a.mainImage}} class="img-src" *ngIf="a.videoUrl" >
+               <div class="bottom-img" >
+                  <span class="pull-left" (click)="onLike(a._id)"><i class="fa fa-thumbs-up  maincolor"> {{a.likes.length}}</i></span>
+                  <span class="pull-right" ><i class="fa fa-eye maincolor"> {{a.views.length}}</i> </span>
+               </div>
+            </div>
+            <div class="ing-div">
+               <ion-item  class="item-ing">
+                  <ion-input type="text" placeholder="{{'home.wacomment' | translate}}" [(ngModel)]="a.comment_value" ></ion-input>
+               </ion-item>
+               <span class="btn-ing" (click)="addcomment(a._id,a.comment_value,a)">
+                <ion-icon name="md-checkmark"></ion-icon>
+               </span>
+            </div>
+			<div class="comment-box" (click)="onDivClick(a)">
+                    {{getCommentCount(a.comments)}} Comments... 
+					<ion-icon *ngIf="!a.show" name="md-arrow-dropdown-circle" item-right style="color: orange; font-size: 18px"></ion-icon> 
+					<ion-icon *ngIf="a.show" name="md-arrow-dropup-circle" item-right style="color: orange;font-size: 18px"></ion-icon>
+            </div>
+			<div *ngIf="a.show">
+            <div class="comment-box" *ngFor="let b of a.comments" >
+               <div >
+                  <div class="comment-user">
+                     <img src="./assets/imgs/profile_img.png" />
+                     <p *ngIf="b.userName"><small>{{b.userName}}</small></p>
+                  </div>
+                  <div class="comments-text">
+                     <div class="comments-input" >
+                        <ion-item  class="item-ing">
+                           <ion-input type="text" value={{b.comment}}  [(ngModel)]="b.comment" 
+                           [disabled]="getCommentSeen(b.user_id)!=true"></ion-input>
+                        </ion-item>
+                        <span class="" (click)="edit_comment(a.user_id,b._id)" *ngIf="getCommentSeen(b.user_id)==true && b._id!=editcomment" >
+                        <i class="fa fa-pencil" aria-hidden="true"  
+                           ></i>
+                        </span>
+                        <span class=""  *ngIf="b._id==editcomment" (click)="onEditComment(b._id,a._id,b.comment)">
+                        <ion-icon name="checkmark" ></ion-icon>
+                        </span>
+                        <span class="" (click)="onDeleteComment(b._id,a._id)"  *ngIf="getCommentSeen(b.user_id)==true">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+			</div>
+            <div class="btn-div">
+               <button class="btn1 pull-left" ion-button small (click)="onViewDetail(a._id,a)" 
+               [disabled]="!a.recipeTitle || !a.description || !a.categories">{{'home.seeDetails' | translate}}</button>
+               <button class="btn2 pull-right" ion-button small *ngIf="getStatusFOrdisabled(a._id)==true" (click)="addmyRecipe(a._id,a.userName)" >{{'home.remove' | translate}}</button>
+               <button class="btn2 pull-right" ion-button small *ngIf="getStatusFOrdisabled(a._id)!=true" (click)="addmyRecipe(a._id,a.userName)" [disabled]="!a.recipeTitle || !a.description || !a.categories ||a.user_id==u_id">{{'home.addRecipe' | translate}}</button>
+            </div>
+         </div>
+		
+      </div>
+	  <div>
+	  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" >
+		    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+	  </ion-infinite-scroll>
+	  </div>
+
+   </div>
+    
+	 
+</ion-content>
+

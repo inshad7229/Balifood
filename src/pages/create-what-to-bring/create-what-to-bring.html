@@ -1,0 +1,53 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title>Create what to bring?</ion-title>
+      <ion-buttons end (click)="onEvent()">
+         <button ion-button icon-only >
+            Done
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content" padding>
+   <div class="btn-div">
+      <button ion-button block (click)="onAdd()">
+         Add New Item
+         <ion-icon name="add"></ion-icon>
+      </button>
+   </div>
+   <div *ngIf="Menu_event">
+      <ion-card *ngFor="let Menu of Menu_event">
+         <ion-card-content>
+                <ion-item >
+               <ion-label>Owner Name:</ion-label>
+               <ion-input type="text" placeholder="Owner" [ngModel]="Menu.memberName" disabled></ion-input>
+			     <ion-icon name="md-create" item-right (click)="onEditItems(Menu)" ></ion-icon>
+                 <ion-icon name="trash" item-right (click)="presentConfirm(Menu._id, Menu)" ></ion-icon>
+               <!--  <ion-icon name="md-create" item-right (click)="OnEditItems()"></ion-icon> -->
+            </ion-item>
+             <ion-item>
+               <ion-label>What To Bring ?:</ion-label>
+               <ion-input type="text" placeholder="Item name" [(ngModel)]="Menu.bringItems" disabled></ion-input>
+              
+            </ion-item>
+            <ion-item>
+               <ion-label>Status:</ion-label>
+               <ion-input type="text" placeholder="Item name" [(ngModel)]="Menu.status" disabled></ion-input>
+              
+            </ion-item>
+           
+           <!--  <ion-item>
+               <ion-label>Status:</ion-label>
+               <ion-select [(ngModel)]="Menu.status" disabled>
+               <ion-option value="Pending">Pending</ion-option>
+               <ion-option value="Confirmed">Confirmed</ion-option>
+               <ion-option value="Rejected">Rejected</ion-option>
+               </ion-select>
+            </ion-item> -->
+         </ion-card-content>
+      </ion-card>
+   </div>
+</ion-content>
+

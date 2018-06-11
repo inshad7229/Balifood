@@ -1,0 +1,175 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title> {{'notification' | translate}} </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content">
+    <div class="notification-sec">
+        <ul class="m-0 p-0 user_ul" type="none">
+<div *ngFor="let a of friendRequestsNotification">
+        <!--friend request accept or reject notification-->
+                <li >
+                <div class="img-left"> <img class="circle-img" src={{a.profileImage}}  *ngIf="a.profileImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png"   *ngIf="!a.profileImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.requesterData.username}}</h4>
+                    <!--p> Request sent <i color="grey"> {{a.dateOfRequest}} </i> </p-->
+                    <div class="">
+                        <button ion-button small class="btn custom-btn" (click)="onAcceptRequest(a.requester,1)"> {{'confirm' | translate}} </button>
+                        <button ion-button small class="btn custom-btn black-btn" (click)="onAcceptRequest(a.requester,2)"> {{'reject' | translate}} </button>
+                    </div>
+                    <span class="status" color="primary" *ngIf="status=='active'"> Pending </span>
+					<hr/><p>{{millisecondsToStr(a.dateOfRequest)}} </p>
+                </div>
+                </li>
+</div>
+
+            <div *ngFor="let a of Notification">
+                <!-- Event Notification-->
+                <li *ngIf="a.notificationType=='EventNotification'" (click)="goToEvent(a.eventId)">
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png"   *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} {{a.eventName}} <i color="grey" *ngIf="a.status=='pending'"> {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+                    <div class="" *ngIf="a.status=='pending'">
+                        <button ion-button small class="btn custom-btn" (click)="onAcceptRequestInvitation(a.eventId,a._id,1)"> {{'confirm' | translate}} </button>
+                        <button ion-button small class="btn custom-btn black-btn" (click)="onAcceptRequestInvitation(a.eventId,a._id,2)"> {{'reject' | translate}} </button>
+                    </div>
+                    <span class="status {{a.status}}" > {{a.status}} </span>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+
+
+                <!-- Menu Notification -->
+                <li *ngIf="a.notificationType=='MenuNotification'" >
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png"   *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey"> {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+
+
+                <!-- Bring Items(item assign to user) -->
+                <li *ngIf="a.notificationType=='ItemNotification'" (click)="goToEvent(a.eventId)">
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png"   *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey" *ngIf="a.status=='pending'"> {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+                    <div class="" *ngIf="a.status=='pending'">
+                        <button ion-button small class="btn custom-btn" (click)="onAcceptRequestInvitationForBringItems(a.eventId,a._id,1,a.whatToBringId)"> {{'confirm' | translate}} </button>
+                        <button ion-button small class="btn custom-btn black-btn" (click)="onAcceptRequestInvitationForBringItems(a.eventId,a._id,2,a.whatToBringId)"> {{'reject' | translate}} </button>
+                    </div>
+                    <span class="status {{a.status}}" > {{a.status}} </span>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+
+
+                <!-- User accept invitation for event -->
+                <li *ngIf="a.notificationType=='invitationAcceptedRejected'" (click)="goToEvent(a.eventId)" >
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png"   *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}}</p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+
+
+                <!-- Event Changes -->
+                <li *ngIf="a.notificationType=='eventChanges'" (click)="goToEvent(a.eventId)">
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey" > {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+
+                <!-- event Menu Changes Notification -->
+                 <li *ngIf="a.notificationType=='MenuChangesNotification'" >
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey" > {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+                <!-- Event what To Bring Changes-->
+
+                 <li *ngIf="a.notificationType=='whatToBringChanges'" >
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey" > {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+                <!-- eventCancelled-->
+
+                    <li *ngIf="a.notificationType=='eventCancelled'" (click)="goToEvent(a.eventId)">
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey" > {{funDate(a.eventDate)}} at {{a.eventTiming}} {{a.eventAddress}} </i> </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+
+                <!-- -->
+                  <li *ngIf="a.notificationType=='comment'" >
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} <i color="grey" > {{millisecondsToStr(a.createdAt)}}  </i> </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+                <!--  recipeAdded -->
+                 <li *ngIf="a.notificationType=='recipeAdded'" >
+                <div class="img-left"> <img class="circle-img" src={{a.userImage}}  *ngIf="a.userImage" />
+                    <img class="circle-img" src="assets/imgs/profiler.png" *ngIf="!a.userImage" /> 
+                </div>
+                <div class="right-content padding-right">
+                    <h4> {{a.userName}}</h4>
+                    <p > {{a.notificationMessage}} </p>
+					<hr/><p>{{millisecondsToStr(a.createdAt)}} </p>
+                </div>
+                </li>
+
+            </div>
+        </ul>
+    </div>
+</ion-content>
+

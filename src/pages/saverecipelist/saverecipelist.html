@@ -1,0 +1,71 @@
+
+<ion-header>
+
+  <ion-navbar>
+
+<ion-title>Saved recipes</ion-title>
+
+    <ion-buttons end>
+       <button ion-button icon-only (click)="onIconlist()"  *ngIf="list=='true'">
+       <ion-icon name="icon-listed-view" class="icon-color"> </ion-icon>
+      
+</button>
+ <button ion-button icon-only (click)="onIcongrid()" *ngIf="list!='true'">
+        <ion-icon name="icon-tiled-view" class="icon-color"> </ion-icon>
+</button>
+</ion-buttons>
+  
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content class="content">
+    <div class="grid-view" *ngIf="list!='true'">
+        <ul class="p-0 list-ul" type="none" *ngIf="savedetail">
+            <li *ngFor="let a of savedetail" (click)="onViewDetail(a._id,a.recipe_detail)">
+                <a >
+                    <img src={{a.recipe_detail.mainImage}} />
+                    <div class="action-box">
+                        <div class="div-title"> <b>{{a.recipe_detail.recipeTitle}}</b> </div>
+                        <div class="div-title"> {{a.recipe_detail.description}}</div>
+                        <div>
+                           <span class="pull-left color">
+                              <i class="fa fa-eye color" ></i>{{a.recipe_detail.views.length}}
+                             </span>
+                              <span class="pull-right color">
+                            
+                              <i class="fa fa-thumbs-up color"></i>{{a.recipe_detail.likes.length}}
+                             </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div  *ngIf="list=='true'" >
+        <div *ngIf="savedetail">
+        	<div class="list-item" *ngFor="let a of savedetail" (click)="onViewDetail(a._id,a.recipe_detail)">
+            <div class="div-list">
+                <div class="img-div pull-left">
+                    <img src={{a.recipe_detail.mainImage}}></div>
+                <div class="img-text">
+                    <div class="extra-div">{{a.recipe_detail.recipeTitle}}</div>
+                    <div class="extra-div1">{{a.recipe_detail.description}}</div>
+                </div>
+                <div class="div-icon">
+                    <span class="pull-left color">
+                        <i class="fa fa-eye color" ></i>{{a.recipe_detail.views.length}}
+                    </span>
+                    <span class="pull-right color">
+                       
+                         <i class="fa fa-thumbs-up color"></i>{{a.recipe_detail.likes.length}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</ion-content>

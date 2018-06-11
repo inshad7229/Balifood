@@ -1,0 +1,152 @@
+
+
+page-create-mutual-event {
+	.toolbar-title-md {
+		color: #ff8b00;
+		font-size: 2rem;
+		font-weight: 500;
+		padding: 0 30px 0 0;
+		text-align: center;
+		font-family: 'Arcon-Regular';
+	}
+		.disable-hover.bar-button.bar-button-md.bar-button-default.bar-button-default-md {
+	color: #ff8b00;
+	text-transform: capitalize;
+	font-family: 'Arcon-Regular';
+}
+	.pop-event {
+		width: 100%;
+		z-index: 1;
+		position: fixed;
+		background: rgba(0, 0, 0, 0.5);
+		top: 0;
+		bottom: 0;
+		padding: 20px;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	ion-header {
+		z-index: 1;
+	}
+	.pop-event-wrap {
+		width: 100%;
+		float: left;
+		padding: 10px;
+		border-radius: 4px;
+		background-color: #fff;
+	}
+	.event-pop-text {
+		padding: 0 10px 10px;
+		margin-bottom: 15px;
+		border-bottom: 1px solid #ddd;
+	}
+	.pop-btn button {
+		margin-bottom: 15px;
+	}
+	.content {
+		font-family: 'Arcon-Regular';
+	}
+	.event-img {
+		width: 100%;
+		padding: 30px 30px 18px 30px;
+		img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+		}
+	}
+	.event {
+		width: 100%;
+		float: left;
+	}
+	.item-md.item-input.item-input-has-focus .item-inner,
+	.item-md.item-input.input-has-focus .item-inner {
+		border-bottom-color: #ff8b00;
+		box-shadow: 0 -1px 0 0 transparent inset;
+	}
+	.item-ios.item-input.item-input-has-focus .item-inner,
+	.item-ios.item-input.input-has-focus .item-inner {
+		border-bottom-color: #ff8b00;
+		box-shadow: 0 -1px 0 0 transparent inset;
+	}
+	.icon.icon-md.ion-md-create.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.event-date-time {
+		width: 100%;
+	}
+	.event-left.item.item-block.item-md.item-datetime {
+		width: 50%;
+		float: left;
+	}
+	.event-right.item.item-block.item-md.item-datetime {
+		width: 50%;
+		float: right;
+	}
+	.icon.icon-md.ion-md-calendar.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.icon.icon-md.ion-md-time.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.icon.icon-md.ion-ios-pin-outline.item-icon {
+		font-size: 18px;
+		color: #cecece;
+	}
+	.item-md {
+		padding-left: 16px;
+		padding-right: 0;
+		position: relative;
+		font-size: 1.6rem;
+		font-weight: normal;
+		text-transform: none;
+		color: #000;
+		background-color: #fff;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		padding-right: 16px;
+	}
+	.item-ios {
+		padding-left: 16px;
+		padding-right: 0;
+		position: relative;
+		font-size: 1.6rem;
+		font-weight: normal;
+		text-transform: none;
+		color: #000;
+		background-color: #fff;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		padding-right: 16px;
+	}
+	.event-btn {
+		padding: 16px;
+		width: 100%;
+		float: left;
+	}
+	.disable-hover.button.button-md.button-default.button-default-md.button-block.button-block-md {
+		background: #ff8b00;
+		text-transform: capitalize;
+		font-family: 'Arcon-Regular';
+		margin-bottom: 10px;
+	}
+}
+

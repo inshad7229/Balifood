@@ -1,0 +1,111 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{recipeTitle}}
+            <p class="main-color" *ngIf="userName">{{userName}}</p>
+        </ion-title>  
+         <ion-buttons end *ngIf="!userName">
+            <button icon-only ion-button (click)="onEditRecipe()"  class="btn-notify" *ngIf="!post">
+                <ion-icon name="md-create" class="create-icon"></ion-icon>
+           </button>
+
+            <button icon-only ion-button (click)="ondeleteRecipe()"  class="btn-notify"  *ngIf="!post">
+                <ion-icon name="md-trash" class="create-icon"></ion-icon>
+           </button>
+
+        </ion-buttons>
+        
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="conent">
+<div class="full">
+    <div class="card">
+        <div class="cus-slider">
+            <div class="top-slide top color-orange">
+                <span class="pull-right" (click)="share()"><ion-icon name="md-share"></ion-icon> </span>
+            </div>
+            <ion-slides>
+                <ion-slide>
+                    <img src={{mainImage}} />
+                </ion-slide>
+                
+            </ion-slides>
+            <div class="top-slide bottom color-orange">
+                <span (click)="onLike()"> <ion-icon name="thumbs-up"></ion-icon> {{likes}} </span>
+                <span class="pull-right"><ion-icon name="eye"></ion-icon> {{views}} </span>
+            </div>
+        </div>
+
+        <div class="block-div" *ngIf="mealType">
+            <p> <span class="font16"> {{mealType}}</span><span> <b>Duration:</b> {{duration}}, {{level}} </span>  </p>
+        </div>
+
+        <ul class="images-list p-0" type="none">
+            <li *ngFor="let a of recipeImages;let i=index" (click)="onImage(a)" > <img src={{a}} class="img-src" /> </li>
+        
+        </ul>
+
+         <div class="block-div"> <span class="pull-right"> 
+        <button ion-button class="btn custom-btn1 btn-sm" (click)="cookmode1()" *ngIf="!cook"> Cook mode </button>
+        <button ion-button class="btn custom-btn btn-sm" (click)="cookmode()" *ngIf="cook"> Cook mode </button>
+         </span> </div>
+
+        <div class="block-div" *ngIf="description">
+            <h5> Description </h5>
+            <p>
+                {{description}}
+            </p>
+        </div>
+
+        <div class="block-div" *ngIf="categories">
+            <h5> Categories: <span>{{categories}}</span></h5>
+            
+        </div>
+		
+		
+        <!--div class="block-div" *ngIf="ingredients">
+            <h5> Ingredients </h5>
+
+            <ol type="number" class="green-tick">
+                <li *ngFor="let a of ingredients" > {{a}} 
+                    <ion-icon name="md-checkmark" class="pull-right check"></ion-icon>
+                </li>
+            </ol>
+        </div-->
+		  <div class="block-div">
+            <h5> Ingredients </h5>
+
+            <ol type="number" class="green-tick">
+                <li *ngFor="let a of ingredientss;let i=index"  (click)="onCookeding(i)"> {{a.ing}}
+                    <ion-icon  *ngIf="a.checkStatus==true" name="md-checkmark" class="pull-right check"></ion-icon>
+
+                </li>
+            </ol>
+        </div>
+
+        <!--div class="block-div" *ngIf="instructions">
+            <h5> Instructions </h5>
+
+            <ol type="number" class="green-tick">
+                <li *ngFor="let a of instructions"> {{a}}
+                 <ion-icon name="md-checkmark" class="pull-right check"></ion-icon> </li>
+            </ol>
+        </div-->
+		
+		 <div class="block-div">
+            <h5> Instructions </h5>
+
+            <ol type="number" class="green-tick">
+                <li *ngFor="let a of instructionss;let i=index" (click)="onCookedins(i)"> {{a.ins}}
+                 <ion-icon name="md-checkmark" class="pull-right check" *ngIf="a.checkStatus==true" ></ion-icon> </li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+    
+</ion-content>
+<ion-footer *ngIf="post"><button ion-button block class="save-btn" (click)="onPosted()">Post</button></ion-footer>
+

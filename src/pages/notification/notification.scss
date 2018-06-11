@@ -1,0 +1,78 @@
+page-notification {
+	.Confirmed{
+		color: #49DF45;
+	}
+	.pending{
+		color: #3C6CCE;
+	}
+	.Cancelled{
+		color: #FC4645;
+	}
+	.content{
+     font-family: 'Arcon-Regular';
+	}
+	.notification-sec{
+		width: 100%;
+		float: left;
+	}
+
+}
+.user_ul{
+	width: 100%;
+	float: left;
+}
+.user_ul li{
+	width: 100%;
+	float: left;
+    border: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+.img-left {
+    width: 70px;
+    float: left;
+    padding: 5px;
+}
+
+.right-content{
+	width: calc(100% - 70px);
+	float: left;
+	padding-left: 5px;
+	position: relative;
+}
+.right-content.padding-right{
+	padding-right: 65px;
+}
+.right-content > p{
+	margin: 0 0 5px;
+}
+.custom-btn.black-btn{
+	background-color: #000;
+}
+.status{
+	position: absolute;
+	top: 20px;
+    right: 8px;
+}
+.circle-img{
+	border-radius: 100px;
+}
+
+[color="primary"]{
+	color: color($colors, primary);
+}
+[color="secondary"]{
+	color: color($colors, secondary);
+}
+[color="danger"]{
+	color: color($colors, danger);
+}
+[color="light"]{
+	color: color($colors, light);
+}
+[color="dark"]{
+	color: color($colors, dark);
+}
+[color="grey"]{
+	color: #a6a6a6;
+}
+

@@ -1,0 +1,29 @@
+
+<ion-header>
+    <ion-navbar>
+         <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+</ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content >
+     <div class="camera-div" >
+      <div class="camera-wrap">
+         <div class="camera-data">
+            <div class="camera-post">
+               <img src={{ppic}} class="camera-img">
+            </div>
+            <div class="btn-div">
+               <button ion-button block class="camera-cancel"(click)="onCamerapostRecipe()">Post of photo without recipe</button>
+               <button ion-button small class="camera-cancel" (click)="onAttachedRecipe()">Post of photo + Recipe</button>
+               <button ion-button block class="camera-cancel" (click)="onCameraPostCancel()">Cancel</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</ion-content>
+
+

@@ -1,0 +1,33 @@
+
+
+page-faq {
+    .content {
+        font-family: 'Arcon-Regular';
+    }
+    .toolbar-title-md {
+        color: #ff8b00;
+        font-size: 2rem;
+        font-weight: 500;
+        padding: 0 35px 0 0;
+        text-align: center;
+        font-family: 'Arcon-Regular';
+    }
+    .full-faq {
+        width: 100%;
+        float: left;
+        border: 1px solid #ff8b00;
+        padding: 0px;
+        margin-bottom: 12px;
+    }
+    .full-ques {
+        width: 100%;
+        float: left;
+        padding: 8px;
+        background: #ff8b00;
+        color: #fff;
+    }
+    .answer {
+        padding: 8px;
+    }
+}
+

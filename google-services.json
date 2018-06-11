@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "75038991552",
+    "firebase_url": "https://balifood-dev.firebaseio.com",
+    "project_id": "balifood-dev",
+    "storage_bucket": "balifood-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75038991552:android:6e0c025f8e824e8e",
+        "android_client_info": {
+          "package_name": "promatics.BaliFood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75038991552-85sn5kvs36qr3vjpchbcu7cnejacsraa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNnmS5vJrKCSNT2v5p5moFsMDApVVdsxQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

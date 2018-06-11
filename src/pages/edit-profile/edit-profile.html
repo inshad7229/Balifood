@@ -1,0 +1,32 @@
+
+<ion-header>
+   <ion-navbar>
+      <ion-buttons start>
+         <button ion-button icon-only (click)="dismiss()">
+            <ion-icon name="close" class="close"></ion-icon>
+         </button>
+      </ion-buttons>
+      <ion-title>Edit Profile</ion-title>
+      <ion-buttons end >
+         <button ion-button icon-only (click)="OnSaveProfile()">
+            <ion-icon name="md-checkmark"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <div class="full-edit">
+      <div class="Edit-img"  (click)="presentActionSheet()">
+         <img  src={{pic}}>
+      </div>
+      <ion-item>
+         <ion-label stacked>Username</ion-label>
+         <ion-input type="text" [(ngModel)]="edit.username" ></ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label stacked>Email</ion-label>
+         <ion-input type="text" [(ngModel)]="email" disabled></ion-input>
+      </ion-item>
+   </div>
+</ion-content>
+

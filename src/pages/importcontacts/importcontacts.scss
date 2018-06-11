@@ -1,0 +1,92 @@
+page-importcontacts {
+	.content{
+     font-family: 'Arcon-Regular';
+	}
+	.toolbar-title-md {
+	color: #ff8b00;
+	font-size: 2rem;
+	font-weight: 500;
+	padding: 0 25px 0 0;
+	text-align: center;
+	font-family: 'Arcon-Regular';
+}
+	u{
+		color: #ff8b00;
+	}
+	.notification-sec{
+		width: 100%;
+		float: left;
+	}
+	.custom-btn{
+	color: #fff;
+	background-color: transparent;
+	font-size: 9px;
+	background: #ff8b00;
+	height: 15px;
+}
+.status-import{
+	position: absolute;
+	top: 20px;
+	right: 8px;
+	background: #ff8b00;
+	color: #fff;
+	padding: 0px 5px 0px 5px;
+	border-radius: 2px;
+}
+.user_ul1{
+	width: 100%;
+	float: left;
+}
+.user_ul1 li{
+	width: 100%;
+	float: left;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+.img-left {
+    width: 70px;
+    float: left;
+    padding: 5px;
+}
+.right-content{
+	width: calc(100% - 70px);
+	float: left;
+	padding-left: 5px;
+	position: relative;
+}
+.right-content.padding-right{
+	padding-right: 65px;
+}
+.right-content > p{
+	margin: 0 0 5px;
+}
+.custom-btn.black-btn{
+	background-color: #000;
+}
+
+.circle-img{
+	border-radius: 100px;
+}
+
+[color="primary"]{
+	color: color($colors, primary);
+}
+[color="secondary"]{
+	color: color($colors, secondary);
+}
+[color="danger"]{
+	color: color($colors, danger);
+}
+[color="light"]{
+	color: color($colors, light);
+}
+[color="dark"]{
+	color: color($colors, dark);
+}
+[color="grey"]{
+	color: #a6a6a6;
+}
+}
+
+
+
